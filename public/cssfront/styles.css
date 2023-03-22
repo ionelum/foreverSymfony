@@ -1,0 +1,237 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+h3,
+h4 {
+    text-shadow: rgb(0, 0, 0) 2px 0 2px;
+}
+
+/* .myBoutique {
+    position: fixed;
+    top: -4px;
+    right: 10px;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+} */
+
+/* @media (max-width: 576px) {
+    .myBoutique {
+        position: fixed;
+        top: -4px;
+        left: 10px;
+        transition: all 0.3s ease-in-out;
+        z-index: 10;
+    }
+} */
+
+.myBoutique:hover {
+    font-size: 1.2rem;
+}
+
+.navbar {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* .semiTransp {
+    background-color: rgb(255, 200, 0, 0.60);
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+}
+
+.semiTransp:hover {
+    background-color: rgb(255, 200, 0);
+} */
+
+@media (min-width: 576px) {
+    .dropdown-menu {
+        pointer-events: none;
+        display: block;
+        opacity: 0;
+        transition: all 0.5s;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        pointer-events: auto;
+        display: block;
+        margin-top: 0;
+        padding-top: -10px;
+        opacity: 1;
+    }
+
+    .myDropdown {
+        width: 60rem;
+    }
+
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+.catImage {
+    border: 0.1px solid #ccc;
+    /* border-radius: 10px; */
+    background-color: rgba(255, 255, 255, 0.158);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.catImage:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    opacity: 100%;
+}
+
+.my-carousel-caption {
+    bottom: -1.5rem;
+}
+
+.navImg {
+    opacity: 75%;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navImg:hover {
+    opacity: 100%;
+    transform: scale(1.05);
+}
+
+#fromPlant {
+    margin: 0;
+    padding: 2%;
+}
+
+.just {
+    text-align: justify;
+}
+
+#for-1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: rgb(0, 0, 0) 1px 0 5px;
+    color: #ffc600;
+}
+
+.bande {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: azure;
+}
+
+.fs-1plus {
+    font-size: 4rem;
+}
+
+.cardTitle {
+    font-size: 2rem;
+    color: #ffc600;
+    font-weight: bold;
+    text-shadow: rgb(0, 0, 0) 1px 0 3px;
+    padding-bottom: 2rem;
+}
+
+.cardText {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+.cardTitle2 {
+    font-size: 2.2rem;
+    color: #ffc600;
+    font-weight: bold;
+    text-shadow: rgb(0, 0, 0) 1px 0 5px;
+    padding-bottom: 1.5rem;
+}
+
+.cardTitle3 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: rgb(0, 0, 0) 1px 0 3px;
+    padding-bottom: 2rem;
+}
+
+.cardText2 {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+}
+
+.cardText3 {
+    line-height: 1.5rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.bgimage1 {
+    background-image: url("../img/index/car-3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.bgimage2 {
+    background-image: url("../img/index/house.webp");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.bgimageIndispensables {
+    background-image: url("../img/indispensables/les-indispensables1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.myCard {
+    background-color: black;
+    opacity: 0.8;
+    color: white;
+}
+
+.fboCard {
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.btnFBO {
+    font-weight: 700;
+}
+
+/* .cardImage {
+    width: fit-content;
+    height: fit-content;
+} */
+
+/* .cardImage:hover {
+    transform: scale(1.4);
+    transition: all 0.5s ease-in-out;
+} */
+
+.productCard {
+    border: 0.1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.158);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    padding: 15px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.productCard:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* .imageCont {
+    height: 225px;
+} */
+
+.my-card-title {
+    height: 2.5rem;
+}
