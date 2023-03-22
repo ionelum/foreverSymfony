@@ -25,7 +25,7 @@ class ProductController extends AbstractController
     
         $product = new Product;
         
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(ProductType::class, $product, ['add'=>true]);
 
         $form->handleRequest($request);
 
@@ -52,7 +52,7 @@ class ProductController extends AbstractController
 
             $this->addFlash('success', 'Produit ajouté');
 
-            return $this->redirectToRoute("home");
+            return $this->redirectToRoute("listProduct");
 
 
         }
@@ -81,5 +81,67 @@ class ProductController extends AbstractController
             'products' => $products
 
         ]);
+    }
+
+
+    /**
+     *
+     * @Route("/edit/{id}", name="editProduct")
+     */
+    public function editProduct(Product $product, Request $request, EntityManagerInterface $manager)
+    {
+
+        
+        $form=$this->createForm(ProductType::class, $product, ['edit'=>true]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $picture_edit_file=$form->get('picture_edit')->getData();
+
+            
+            if ($picture_edit_file){
+
+                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file->getClientOriginalName();
+
+                unlink($this->getParameter('upload_directory').'/'.$product->getPicture());
+                $picture_edit_file->move($this->getParameter('upload_directory'), $picture_bdd);
+
+                $product->setPicture($picture_bdd);
+
+            }
+
+            $manager->persist($product);
+            $manager->flush();
+
+            $this->addFlash('success', 'Produit modifié');
+
+            return $this->redirectToRoute('listProduct');
+
+        }
+
+        return $this->render('product/editProduct.html.twig', [
+            'form'=>$form->createView(),
+            'product'=>$product
+
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/delete/{id}", name="deleteProduct")
+     */
+    public function deleteProduct(Product $product, EntityManagerInterface $manager)
+    {
+        
+        unlink($this->getParameter('upload_directory').'/'.$product->getPicture());
+
+        $manager->remove($product);
+        $manager->flush();
+
+        $this->addFlash('success', 'Produit supprimé');
+
+        return $this->redirectToRoute('listProduct');
     }
 }
