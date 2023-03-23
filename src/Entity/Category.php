@@ -22,6 +22,7 @@ class Category
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
     private $title;
 

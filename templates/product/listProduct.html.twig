@@ -11,6 +11,7 @@
         <thead>
         <tr>
             <th>Nom</th>
+            <th>Categorie</th>
             <th>Reference</th>
             <th>Prix</th>
             <th>Description</th>
@@ -23,15 +24,16 @@
         <tbody>
         {% for product in products %}
             <tr>
-                <td>{{ product.title|slice(0, 10) }}</td>
+                <td>{{ product.title|slice(0, 30) }}</td>
+                <td>{{ product.category.title|slice(0, 20) }}</td>
                 <td>{{ product.ref }}</td>
                 <td>{{ product.price }} €</td>
-                <td>{{ product.description|slice(0, 10) }}</td>
+                <td>{{ product.description|slice(0, 30) }}</td>
                 <td>{{ product.volume|slice(0, 10) }}</td>
-                <td>{{ product.mode|slice(0, 10) }}</td>
+                <td>{{ product.mode|slice(0, 20) }}</td>
                 <td><img src="{{ asset('upload/' ~ product.picture) }}" width="50" alt=""></td>
                 <td>
-                    <a href="{{ path('editProduct', {'id': product.id }) }}" class="mx-2"><i class="fas fa-2x fa-edit "></i></a>
+                    <a href="{{ path('editProduct', {'id': product.id }) }}" class="mx-2"><i class="fas fa-2x fa-edit"></i></a>
                     <a href="{{ path('deleteProduct', {'id': product.id }) }}" class="mx-2"><i class="fas fa-2x fa-trash"></i></a>
                 </td>
             </tr>

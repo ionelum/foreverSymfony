@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Product;
+use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -21,6 +22,11 @@ class ProductType extends AbstractType
         if ($options['add']==true){
 
         $builder
+            ->add('category', EntityType::class, [
+                "class"=>Category::class,
+                "choice_label"=>"title",
+                "label"=>"Catégorie"
+            ])
             ->add('title', TextType::class, [
                 'required'=>false,
                 'attr'=> [
@@ -89,6 +95,11 @@ class ProductType extends AbstractType
 
     }else{
         $builder
+            ->add('category', EntityType::class, [
+                "class"=>Category::class,
+                "choice_label"=>"title",
+                "label"=>"Catégorie"
+            ])
             ->add('title', TextType::class, [
                 'required'=>false,
                 'attr'=> [

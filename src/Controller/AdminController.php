@@ -86,29 +86,29 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $picture_edit_file = $form->get('picture_edit_normal')->getData();
+            $picture_edit_file_normal = $form->get('picture_edit_normal')->getData();
 
-            if ($picture_edit_file){
+            if ($picture_edit_file_normal){
 
-                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file->getClientOriginalName();
+                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file_normal->getClientOriginalName();
 
                 unlink($this->getParameter('upload_directory').'/'.$category->getPictureNormal());
 
-                $picture_edit_file->move($this->getParameter('upload_directory'), $picture_bdd);
+                $picture_edit_file_normal->move($this->getParameter('upload_directory'), $picture_bdd);
 
                 $category->setPictureNormal($picture_bdd);
 
             }
 
-            $picture_edit_file = $form->get('picture_edit_wide')->getData();
+            $picture_edit_file_wide = $form->get('picture_edit_wide')->getData();
 
-            if ($picture_edit_file){
+            if ($picture_edit_file_wide){
 
-                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file->getClientOriginalName();
+                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file_wide->getClientOriginalName();
 
                 unlink($this->getParameter('upload_directory').'/'.$category->getPictureWide());
 
-                $picture_edit_file->move($this->getParameter('upload_directory'), $picture_bdd);
+                $picture_edit_file_wide->move($this->getParameter('upload_directory'), $picture_bdd);
 
                 $category->setPictureWide($picture_bdd);
 
@@ -135,7 +135,7 @@ class AdminController extends AbstractController
      *
      * @Route("/delete/{id}", name="deleteCategory")
      */
-    public function deleteProduct(Category $category, EntityManagerInterface $manager)
+    public function deleteCategory(Category $category, EntityManagerInterface $manager)
     {
         
         unlink($this->getParameter('upload_directory').'/'.$category->getPictureNormal());
