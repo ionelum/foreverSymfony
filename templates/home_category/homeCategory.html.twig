@@ -17,7 +17,7 @@
 
 <div class="container" id="productListCont">
         <div class="row py-4" id="productList">
-    
+
     {% for product in products %}
         <div class="col-sm-3 mb-3 mb-sm-0 px-1 text-center">
         <div
@@ -44,7 +44,7 @@
                 </p>
             </div>
             <div class="card-footer p-0 bg-primary">
-                <p class="m-0 p-1 fw-bold fs-5">{{ product.price }} € *</p>
+                <p class="m-0 p-1 fw-bold fs-5">{{ product.price|number_format(2) }} € *</p>
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@
                                         </p>
                                         <h5 class="my-4">Contenance : {{ product.volume }}</h5>
                                         <h5 class="my-4">
-                                            Prix France Métropole TTC : <span class="text-bg-primary">{{ product.price }} €</span>
+                                            Prix France Métropole TTC : <span class="text-bg-primary">{{ product.price|number_format(2) }} €</span>
                                         </h5>
                                         <h5 class="my-4">Réf. {{ product.ref }}</h5>
                                         <hr/>

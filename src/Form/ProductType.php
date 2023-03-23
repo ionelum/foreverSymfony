@@ -37,7 +37,7 @@ class ProductType extends AbstractType
             ->add('ref', TextType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez la reference officiele Vorever'
+                    'placeholder'=>'Saisissez la reference officielle Forever'
                 ],
                 'label'=>'Reference'
             ])
@@ -51,9 +51,9 @@ class ProductType extends AbstractType
             ->add('volume', TextType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez le volume ou le poids du produit'
+                    'placeholder'=>'Saisissez le volume, le poids ou la quantite du produit'
                 ],
-                'label'=>'Volume ou poids du produit'
+                'label'=>'Volume, poids ou quantite du produit'
             ])
             ->add('content', TextareaType::class, [
                 'required'=>false,
@@ -116,7 +116,7 @@ class ProductType extends AbstractType
             ->add('ref', TextType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez la reference officiele Vorever'
+                    'placeholder'=>'Saisissez la reference officielle Forever'
                 ],
                 'label'=>'Reference'
             ])
@@ -130,9 +130,9 @@ class ProductType extends AbstractType
             ->add('volume', TextType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez le volume ou le poids du produit'
+                    'placeholder'=>'Saisissez le volume, le poids ou la quantite du produit'
                 ],
-                'label'=>'Volume ou poids du produit'
+                'label'=>'Volume, poids ou quantite du produit'
             ])
             ->add('content', TextareaType::class, [
                 'required'=>false,
