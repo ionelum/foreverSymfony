@@ -26,10 +26,17 @@ class CategoryType extends AbstractType
                 ],
                 'label'=>'Titre'
             ])
+            ->add('alias', TextType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Saisissez un alias court pour de la catégorie'
+                ],
+                'label'=>'Alias'
+            ])
             ->add('picture_normal', FileType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Chargez une photo format 7x4',
+                    'placeholder'=>'Chargez une photo format 7x4 (Example: 700x400 px)',
                     'onChange'=>'loadFile1(event)'
                 ],
                 'label'=>'Photo du produit format 7x4',
@@ -49,10 +56,10 @@ class CategoryType extends AbstractType
             ->add('picture_wide', FileType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Chargez une photo format 16x8',
+                    'placeholder'=>'Chargez une photo format 16x7 (Example: 1920x800 px)',
                     'onChange'=>'loadFile2(event)'
                 ],
-                'label'=>'Photo du produit format 16x8',
+                'label'=>'Photo du produit format 16x7',
                 'constraints'=>[
                     new File([
                         'mimeTypes'=>[
@@ -77,10 +84,17 @@ class CategoryType extends AbstractType
                 ],
                 'label'=>'Titre'
             ])
+            ->add('alias', TextType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Saisissez un alias court pour de la catégorie'
+                ],
+                'label'=>'Alias'
+            ])
             ->add('picture_edit_normal', FileType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Chargez une photo format 7x4',
+                    'placeholder'=>'Chargez une photo format 7x4 (Example: 700x400 px)',
                     'onChange'=>'loadFile1(event)'
                 ],
                 'label'=>'Photo du produit format 7x4',
@@ -100,10 +114,10 @@ class CategoryType extends AbstractType
             ->add('picture_edit_wide', FileType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Chargez une photo format 16x8',
+                    'placeholder'=>'Chargez une photo format 16x7 (Example: 1920x800 px)',
                     'onChange'=>'loadFile2(event)'
                 ],
-                'label'=>'Photo du produit format 16x8',
+                'label'=>'Photo du produit format 16x7',
                 'constraints'=>[
                     new File([
                         'mimeTypes'=>[

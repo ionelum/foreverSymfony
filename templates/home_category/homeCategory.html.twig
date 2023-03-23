@@ -1,0 +1,145 @@
+{% extends 'home/home.html.twig' %}
+
+
+
+
+
+{% block body  %}
+
+{{ parent() }}
+
+<div class="container-fluid m-0 p-0">
+    <img
+        class="w-100 m-0 p-0"
+        src="{{ asset('upload/') }}{{ category.pictureWide }}"
+        alt=""/>
+    </div>
+
+<div class="container" id="productListCont">
+        <div class="row py-4" id="productList">
+    
+    {% for product in products %}
+        <div class="col-sm-3 mb-3 mb-sm-0 px-1 text-center">
+        <div
+            class="card productCard p-0"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal${{ product.ref }}"
+        >
+            <img
+                src="{{ asset('upload/') }}{{ product.picture }}"
+                class="card-img-top mx-auto w-75"
+                alt="..."
+            />
+            <div class="card-body">
+                <h5 class="card-title text-uppercase fw-bold my-card-title">
+                {{ product.title }}
+                </h5>
+                <hr />
+                <p class="card-text fs-5">
+                    <span>{{ product.volume }}</span><span> • </span
+                    ><span>Réf. {{ product.ref }}</span>
+                </p>
+                <p class="card-text">
+                {{ product.description|slice(0, 50) }}...
+                </p>
+            </div>
+            <div class="card-footer p-0 bg-primary">
+                <p class="m-0 p-1 fw-bold fs-5">{{ product.price }} € *</p>
+            </div>
+        </div>
+    </div>
+    <div
+                class="modal fade"
+                id="exampleModal${{ product.ref }}"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel${{ product.ref }}"
+                aria-hidden="true"
+            >
+                <div
+                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+                >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3
+                                class="modal-title w-100 text-center"
+                                id="exampleModalLabel${i}"
+                            >
+                            {{ product.title }}
+                            </h3>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row text-center align-items-center">
+                                    <div class="col-lg-5 col-sm-12 col-xs-12">
+                                        <img
+                                            src="{{ asset('upload/') }}{{ product.picture }}"
+                                            alt="..."
+                                            class="w-100"
+                                        />
+                                    </div>
+                                    <div class="col-lg-7 col-sm-12 col-xs-12 px-0 px-md-3">
+                                        <p class="my-4">
+                                        {{ product.description }}
+                                        </p>
+                                        <h5 class="my-4">Contenance : {{ product.volume }}</h5>
+                                        <h5 class="my-4">
+                                            Prix France Métropole TTC : <span class="text-bg-primary">{{ product.price }} €</span>
+                                        </h5>
+                                        <h5 class="my-4">Réf. {{ product.ref }}</h5>
+                                        <hr/>
+                                        <p class="my-4">
+                                        {{ product.volume }}
+                                        </p>
+                                        <h4 class="my-4">
+                                            Conseils d'utilisation
+                                        </h4>
+                                        <hr />
+                                        <p>
+                                        {{ product.mode }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Fermer
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                            >
+                                Acheter
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                Vendre
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    {% endfor %}
+    
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+{% block title  %}
+parent()
+{% endblock %}

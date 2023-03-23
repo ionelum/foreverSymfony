@@ -5,6 +5,7 @@
     
     {{ form_start(form) }}
     {{ form_row(form.title) }}
+    {{ form_row(form.alias) }}
     {{ form_row(form.picture_edit_normal) }}
     <img src="{{ asset('upload/') }}{{ category.pictureNormal }}" width="250" alt="">
     <img width="250" id="image1" alt="">

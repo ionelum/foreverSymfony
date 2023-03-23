@@ -34,7 +34,13 @@ class ProductType extends AbstractType
                 ],
                 'label'=>'Nom du produit'
             ])
-            ->add('ref', TextType::class)
+            ->add('ref', TextType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Saisissez la reference officiele Vorever'
+                ],
+                'label'=>'Reference'
+            ])
             ->add('description', TextareaType::class, [
                 'required'=>false,
                 'attr'=> [
@@ -107,7 +113,13 @@ class ProductType extends AbstractType
                 ],
                 'label'=>'Nom du produit'
             ])
-            ->add('ref', TextType::class)
+            ->add('ref', TextType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Saisissez la reference officiele Vorever'
+                ],
+                'label'=>'Reference'
+            ])
             ->add('description', TextareaType::class, [
                 'required'=>false,
                 'attr'=> [

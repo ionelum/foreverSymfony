@@ -1,145 +1,145 @@
 {% extends 'base.html.twig' %}
 
+{% block body %}
 
-
-
-
-{% block body  %}
-
-    <div class="container" id="productListCont">
-        <div class="row py-4" id="productList">
-    
-    {% for product in products %}
-        <div class="col-sm-3 mb-3 mb-sm-0 px-1 text-center">
-        <div
-            class="card productCard p-0"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal${{ product.ref }}"
-        >
-            <img
-                src="{{ asset('upload/') }}{{ product.picture }}"
-                class="card-img-top mx-auto w-75"
-                alt="..."
-            />
-            <div class="card-body">
-                <h5 class="card-title text-uppercase fw-bold my-card-title">
-                {{ product.title }}
-                </h5>
-                <hr />
-                <p class="card-text fs-5">
-                    <span>{{ product.volume }}</span><span> • </span
-                    ><span>Réf. {{ product.ref }}</span>
-                </p>
-                <p class="card-text">
-                {{ product.description|slice(0, 50) }}...
-                </p>
-            </div>
-            <div class="card-footer p-0 bg-primary">
-                <p class="m-0 p-1 fw-bold fs-5">{{ product.price }} € *</p>
-            </div>
-        </div>
-    </div>
-    <div
-                class="modal fade"
-                id="exampleModal${{ product.ref }}"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel${{ product.ref }}"
-                aria-hidden="true"
-            >
-                <div
-                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+<div class="container-fluid bg-primary">
+            <div class="container myNavbar py-0">
+                <nav
+                    class="navbar navbar-expand-lg bg-body-tertiary align-items-end py-0"
                 >
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3
-                                class="modal-title w-100 text-center"
-                                id="exampleModalLabel${i}"
-                            >
-                            {{ product.title }}
-                            </h3>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="row text-center align-items-center">
-                                    <div class="col-lg-5 col-sm-12 col-xs-12">
-                                        <img
-                                            src="{{ asset('upload/') }}{{ product.picture }}"
-                                            alt="..."
-                                            class="w-100"
-                                        />
+                    <div class="container">
+                        <a class="navbar-brand pb-0 goHome" href="#">
+                            <img
+                                src="assets/img/index/newlogo3.webp"
+                                alt=""
+                                height="60"
+                                class="d-inline-block align-text-center"
+                            />
+                        </a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarSupportedContent"
+                        >
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item mx-2">
+                                    <a
+                                        class="nav-link active goHome"
+                                        aria-current="page"
+                                        href=""
+                                        >Accueil</a
+                                    >
+                                </li>
+                                <li class="nav-item mx-1 dropdown">
+                                    <a
+                                        class="btn btn-success p-1 mt-1 text-primary nav-link dropdown-toggle"
+                                        id="productTrigger"
+                                        href="{{ path('homeCategories') }}"
+                                        role="button"
+                                        {# data-bs-toggle="dropdown" #}
+                                        aria-expanded="false"
+                                    >
+                                        Produits
+                                    </a>
+                                    <div
+                                        class="dropdown-menu px-2 py-2 mt-0 mb-1 myDropdown bg-light"
+                                    >
+                                        <div class="row text-center">
+                                        {# {% for category in categories %}
+                                            <div class="col-lg-3 p-1">
+                                                <a
+                                                    class="dropdown-item px-2"
+                                                    id="{{ category.alias }}"
+                                                    href="{{ path( 'homeCategory', {id: category.id} ) }}">
+                                                    <img
+                                                        src="{{ asset('upload/') }}{{ category.pictureNormal }}"
+                                                        width="100%"
+                                                        class="navImg"
+                                                    />
+                                                    <p class="my-0 fw-bold">
+                                                        {{ category.title }}
+                                                    </p></a>
+                                            </div>
+                                        {% endfor %} #}
+                                        </div>
                                     </div>
-                                    <div class="col-lg-7 col-sm-12 col-xs-12 px-0 px-md-3">
-                                        <p class="my-4">
-                                        {{ product.description }}
-                                        </p>
-                                        <h5 class="my-4">Contenance : {{ product.volume }}</h5>
-                                        <h5 class="my-4">
-                                            Prix France Métropole TTC : <span class="text-bg-primary">{{ product.price }} €</span>
-                                        </h5>
-                                        <h5 class="my-4">Réf. {{ product.ref }}</h5>
-                                        <hr/>
-                                        <p class="my-4">
-                                        {{ product.volume }}
-                                        </p>
-                                        <h4 class="my-4">
-                                            Conseils d'utilisation
-                                        </h4>
-                                        <hr />
-                                        <p>
-                                        {{ product.mode }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                Fermer
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-success"
-                            >
-                                Acheter
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                Vendre
-                            </button>
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a
+                                        class="nav-link goHome"
+                                        href="#aloe-vera-forever"
+                                        >Aloe Vera & Forever</a
+                                    >
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a
+                                        class="nav-link goHome"
+                                        href="#devenirFbo"
+                                        >Devenir FBO</a
+                                    >
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a class="nav-link goHome" href="#commander"
+                                        >Commander</a
+                                    >
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a
+                                        class="nav-link"
+                                        href="mailto:vluncasu@yahoo.com"
+                                        >Contacter-moi</a
+                                    >
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    BackOffice
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ path('addProduct') }}">Ajout produit</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('listProduct') }}">Liste des produits</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('addCategory') }}">Ajout categorie</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('listCategory') }}">Liste des categories</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item mx-1 mt-1">
+                                    <a
+                                        role="button"
+                                        class="btn btn-danger text-primary fw-bolder"
+                                        href=""
+                                        >Boutique en ligne</a
+                                    >
+                                </li>
+                            </ul>
+                            <!-- <form class="d-flex" role="search">
+                                <input
+                                    class="form-control me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                />
+                                <button class="btn btn-outline-success" type="submit">
+                                    Search
+                                </button>
+                            </form> -->
                         </div>
                     </div>
-                </div>
+                </nav>
             </div>
-
-    {% endfor %}
-    
-    </div>
         </div>
 
-    {# <div class="row justify-content-evenly mt-4">
-    {% for category in categories %}
-        <div class="card rounded col-md-3 mt-4 p-0">
-            <div class="card-header p-0">
-                <img src="{{ asset('upload/') }}{{ category.pictureNormal }}" alt="" class="img-top img-fluid">
-        </div>
-    <div class="card-body">
-        <h4>{{ category.title}}</h4>
 
-    </div>
-        <a href="" class="btn btn-info">Ajouter au panier</a>
-    </div>
 
-    {% endfor %}
-    </div> #}
 
 
 {% endblock %}
@@ -148,5 +148,4 @@
 
 
 {% block title  %}
-parent()
 {% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'home/home.html.twig' %}
+
+
+
+
+
+{% block body  %}
+
+{{ parent() }}
+
+    <div class="container">
+        <div class="row my-5" id="categoriesList">
+    
+    {% for category in categories %}
+    
+    
+        <div class="col-lg-4 g-3">
+            <div class="carousel-item active catImage">
+                <a href="{{ path( 'homeCategory', {id: category.id} ) }}">
+                    <img
+                    src="{{ asset('upload/') }}{{ category.pictureNormal }}"
+                    class="d-block w-100"
+                    alt="..."
+                    />
+                </a>
+                <div class="carousel-caption my-carousel-caption" id="test">
+                    <h3 class="fw-bold fs-2">{{ category.title }}</h3>
+                </div>
+            </div>
+        </div>
+    
+
+    {% endfor %}
+    
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block title  %}
+parent()
+{% endblock %}
