@@ -13,29 +13,21 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/category")
+ */
 class AdminController extends AbstractController
 {
     /**
      *
-     * @Route("/category", name="category")
-     * @Route("/editCategory/{id}", name="editCategory")
+     * @Route("/add", name="addCategory")
      */
-    public function category(Request $request, EntityManagerInterface $manager, CategoryRepository $categoryRepository, $id = null)
+    public function addCategory(Request $request, EntityManagerInterface $manager)
     {
         
-        $categories = $categoryRepository->findAll();
-
+        $category = new Category();
         
-        if ($id) { 
-            $category = $categoryRepository->find($id);
-
-        } else {
-
-            $category = new Category();
-        }
-
-
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(CategoryType::class, $category, ['add'=>true]);
 
         $form->handleRequest($request);
 
@@ -68,22 +60,105 @@ class AdminController extends AbstractController
             $manager->persist($category);
             
             $manager->flush();
+
+            $this->addFlash('success', 'Catégorie ajoutée');
             
-            if ($id) {
-                $this->addFlash('success', 'Catégorie modifiée');
-
-            } else {
-
-                $this->addFlash('success', 'Catégorie ajoutée');
-            }
-
-
-            return $this->redirectToRoute('category');
+            return $this->redirectToRoute('listCategory');
 
         }
 
-        return $this->render('admin/category.html.twig', [
+        return $this->render('admin/addCategory.html.twig', [
+            'form' => $form->createView()
+
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/edit/{id}", name="editCategory")
+     */
+    public function editCategory(Category $category, Request $request, EntityManagerInterface $manager)
+    {
+        
+        $form = $this->createForm(CategoryType::class, $category, ['edit'=>true]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $picture_edit_file = $form->get('picture_edit_normal')->getData();
+
+            if ($picture_edit_file){
+
+                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file->getClientOriginalName();
+
+                unlink($this->getParameter('upload_directory').'/'.$category->getPictureNormal());
+
+                $picture_edit_file->move($this->getParameter('upload_directory'), $picture_bdd);
+
+                $category->setPictureNormal($picture_bdd);
+
+            }
+
+            $picture_edit_file = $form->get('picture_edit_wide')->getData();
+
+            if ($picture_edit_file){
+
+                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file->getClientOriginalName();
+
+                unlink($this->getParameter('upload_directory').'/'.$category->getPictureWide());
+
+                $picture_edit_file->move($this->getParameter('upload_directory'), $picture_bdd);
+
+                $category->setPictureWide($picture_bdd);
+
+            }
+
+            $manager->persist($category);
+            
+            $manager->flush();
+
+            $this->addFlash('success', 'Catégorie modifié');
+            
+            return $this->redirectToRoute('listCategory');
+
+        }
+
+        return $this->render('admin/editCategory.html.twig', [
             'form' => $form->createView(),
+            'category'=>$category
+
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/delete/{id}", name="deleteCategory")
+     */
+    public function deleteProduct(Category $category, EntityManagerInterface $manager)
+    {
+        
+        unlink($this->getParameter('upload_directory').'/'.$category->getPictureNormal());
+        unlink($this->getParameter('upload_directory').'/'.$category->getPictureWide());
+
+        $manager->remove($category);
+        $manager->flush();
+
+        $this->addFlash('success', 'Category supprimé');
+
+        return $this->redirectToRoute('listCategory');
+    }
+
+    /**
+     *
+     * @Route("/list", name="listCategory")
+     */
+    public function listProduct(CategoryRepository $categoryRepository)
+    {
+
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('admin/listCategory.html.twig', [
             'categories' => $categories
 
         ]);

@@ -15,6 +15,9 @@ class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        if ($options['add']==true){
+
         $builder
             ->add('title', TextType::class, [
                 'required'=>false,
@@ -65,12 +68,66 @@ class CategoryType extends AbstractType
             ])
             ->add('Enregistrer', SubmitType::class)
         ;
+    }else{
+        $builder
+            ->add('title', TextType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Saisissez le titre de la catégorie'
+                ],
+                'label'=>'Titre'
+            ])
+            ->add('picture_edit_normal', FileType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Chargez une photo format 7x4',
+                    'onChange'=>'loadFile1(event)'
+                ],
+                'label'=>'Photo du produit format 7x4',
+                'constraints'=>[
+                    new File([
+                        'mimeTypes'=>[
+                            "image/png",
+                            "image/jpg",
+                            "image/jpeg",
+                            "image/webp",
+                            "image/gif"
+                        ],
+                        'mimeTypesMessage'=>"Extensions autorisées: png, jpg, jpeg, webp et gif"
+                        ])
+                ]
+            ])
+            ->add('picture_edit_wide', FileType::class, [
+                'required'=>false,
+                'attr'=> [
+                    'placeholder'=>'Chargez une photo format 16x8',
+                    'onChange'=>'loadFile2(event)'
+                ],
+                'label'=>'Photo du produit format 16x8',
+                'constraints'=>[
+                    new File([
+                        'mimeTypes'=>[
+                            "image/png",
+                            "image/jpg",
+                            "image/jpeg",
+                            "image/webp",
+                            "image/gif"
+                        ],
+                        'mimeTypesMessage'=>"Extensions autorisées: png, jpg, jpeg, webp et gif"
+                        ])
+                ]
+            ])
+            ->add('Enregistrer', SubmitType::class)
+        ;
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Category::class,
+            'add'=>false,
+            'edit'=>false
         ]);
     }
 }

@@ -1,0 +1,42 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block body %}
+<h1>Liste des catégories</h1>
+    
+
+    <table class="table table-dark table-striped mt-5">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Photo 7x4</th>
+            <th>Photo 16x8</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for category in categories %}
+
+        <tr>
+            <td>{{ category.title }}</td>
+            <td><img src="{{ asset('upload/' ~ category.pictureNormal) }}" width="90" alt=""></td>
+            <td><img src="{{ asset('upload/' ~ category.pictureWide) }}" width="90" alt=""></td>
+            <td>
+                <a href="{{ path('editCategory', {'id': category.id }) }}" class="btn btn-info">Modifier</a>
+                <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

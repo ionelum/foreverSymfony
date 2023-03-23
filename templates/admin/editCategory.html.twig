@@ -1,0 +1,35 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block body %}
+<h1>Modification catégories</h1>
+    
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.picture_edit_normal) }}
+    <img src="{{ asset('upload/') }}{{ category.pictureNormal }}" width="250" alt="">
+    <img width="250" id="image1" alt="">
+    {{ form_row(form.picture_edit_wide) }}
+    <img src="{{ asset('upload/') }}{{ category.pictureWide }}" width="250" alt="">
+    <img width="250" id="image2" alt="">
+    {{ form_row(form.Enregistrer) }}
+    {{ form_end(form) }}
+
+    <script>
+        var loadFile1=function (event){
+            var image1=document.getElementById('image1')
+            image1.src=URL.createObjectURL(event.target.files[0]);
+        }
+
+        var loadFile2=function (event){
+            var image2=document.getElementById('image2')
+            image2.src=URL.createObjectURL(event.target.files[0]);
+        }
+
+    </script>
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

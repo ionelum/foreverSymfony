@@ -31,11 +31,15 @@ class Category
      */
     private $picture_normal;
 
+    public $picture_edit_normal;
+
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
     private $picture_wide;
+
+    public $picture_edit_wide;
 
     /**
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
