@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CarouselType extends AbstractType
 {
@@ -20,15 +21,15 @@ class CarouselType extends AbstractType
             'attr'=> [
                 'placeholder'=>'Saisissez le nom d\'image'
             ],
-            'label'=>'Nom du produit'
+            'label'=>'Nom d\'image'
         ])
         ->add('picture', FileType::class, [
             'required'=>false,
             'attr'=> [
-                'placeholder'=>'Chargez une photo',
+                'placeholder'=>'Chargez une image format 16x7 (Example: 1920x800px)',
                 'onChange'=>'loadFile(event)'
             ],
-            'label'=>'Photo a afficher',
+            'label'=>'Image a afficher',
             'constraints'=>[
                 new File([
                     'mimeTypes'=>[

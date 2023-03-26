@@ -3,12 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Carousel;
+use App\Form\CarouselType;
+use App\Repository\CarouselRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/carousel")
+ */
 class CarouselController extends AbstractController
 {
         /**
@@ -46,7 +51,7 @@ class CarouselController extends AbstractController
 
             $this->addFlash('success', 'Photo ajouté au carousel');
 
-            return $this->redirectToRoute("addCarousel");
+            return $this->redirectToRoute("listCarousel");
 
 
         }
@@ -57,5 +62,39 @@ class CarouselController extends AbstractController
             'form' => $form->createView()
 
         ]);
+    }
+
+    /**
+     *
+     * @Route("/list", name="listCarousel")
+     */
+    public function listCarousel(CarouselRepository $carouselRepository)
+    {
+
+        $carousels = $carouselRepository->findAll();
+        
+
+
+        return $this->render('admin/listCarousel.html.twig', [
+            'carousels' => $carousels
+
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/delete/{id}", name="deleteCarousel")
+     */
+    public function deleteCarousel(Carousel $carousel, EntityManagerInterface $manager)
+    {
+        
+        unlink($this->getParameter('upload_directory').'/'.$carousel->getPicture());
+
+        $manager->remove($carousel);
+        $manager->flush();
+
+        $this->addFlash('success', 'Photo supprimé');
+
+        return $this->redirectToRoute('listCarousel');
     }
 }

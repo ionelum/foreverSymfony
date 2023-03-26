@@ -132,6 +132,21 @@ class AdminController extends AbstractController
 
     /**
      *
+     * @Route("/list", name="listCategory")
+     */
+    public function listProduct(CategoryRepository $categoryRepository)
+    {
+
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('admin/listCategory.html.twig', [
+            'categories' => $categories
+
+        ]);
+    }
+
+    /**
+     *
      * @Route("/delete/{id}", name="deleteCategory")
      */
     public function deleteCategory(Category $category, EntityManagerInterface $manager)
@@ -146,21 +161,6 @@ class AdminController extends AbstractController
         $this->addFlash('success', 'Category supprimé');
 
         return $this->redirectToRoute('listCategory');
-    }
-
-    /**
-     *
-     * @Route("/list", name="listCategory")
-     */
-    public function listProduct(CategoryRepository $categoryRepository)
-    {
-
-        $categories = $categoryRepository->findAll();
-
-        return $this->render('admin/listCategory.html.twig', [
-            'categories' => $categories
-
-        ]);
     }
 
 }

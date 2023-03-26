@@ -169,22 +169,22 @@ h4 {
 }
 
 .bgimage1 {
-    background-image: url("../img/index/car-3.jpg");
+    background-image: url("../index/car-3.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .bgimage2 {
-    background-image: url("../img/index/house.webp");
+    background-image: url("../index/house.webp");
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
-.bgimageIndispensables {
-    background-image: url("../img/indispensables/les-indispensables1.jpg");
+/* .bgimageIndispensables {
+    background-image: url("../indispensables/les-indispensables1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-}
+} */
 
 .myCard {
     background-color: black;

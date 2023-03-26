@@ -60,14 +60,15 @@
             gestion
         </div>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Gestion produits</span>
             </a>
-            <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
+                    {# <h6 class="collapse-header">Gestion produits:</h6> #}
                     <a class="collapse-item" href="{{ path('addProduct') }}">Ajout produit</a>
                     <a class="collapse-item" href="{{ path('listProduct') }}">Voir les produits</a>
                     <a class="collapse-item" href="{{ path('addCategory') }}">Ajout catégories produit</a>
@@ -80,30 +81,34 @@
         <hr class="sidebar-divider d-none d-md-block">
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Gestion caroussel</span>
             </a>
+            <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    {# <h6 class="collapse-header">Gestion caroussel:</h6> #}
+                    <a class="collapse-item" href="{{ path('addCarousel') }}">Ajout images carousel</a>
+                    <a class="collapse-item" href="{{ path('listCarousel') }}">Voir images carousel</a>
+                </div>
+            </div>
         </li>
 
 
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Gestion carte resto</span>
             </a>
-            <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="">Ajout produit</a>
-                    <a class="collapse-item" href="">Voir les produits</a>
-                    <a class="collapse-item" href="">Gestion catégorie produit</a>
-                    <a class="collapse-item" href="">Gestion état produit</a>
-                    <a class="collapse-item" href="">Gestion Achat</a>
+                    {# <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="">Ajout produit</a> #}
                 </div>
             </div>
         </li>
@@ -208,7 +213,7 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link " href="{{ path('home') }}" role="button">
+                        <a class="nav-link " href="{{ path('accueil') }}" role="button">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Voir le site</span>
                             <img class="img-profile rounded-circle"
                                 src="">

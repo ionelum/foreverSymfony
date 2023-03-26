@@ -11,7 +11,7 @@
             <th>Alias</th>
             <th>Photo 7x4</th>
             <th>Photo 16x7</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -24,8 +24,8 @@
             <td><img src="{{ asset('upload/' ~ category.pictureNormal) }}" width="90" alt=""></td>
             <td><img src="{{ asset('upload/' ~ category.pictureWide) }}" width="90" alt=""></td>
             <td>
-                <a href="{{ path('editCategory', {'id': category.id }) }}" class="btn btn-info">Modifier</a>
-                <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('editCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-edit text-info"></i></a>
+                <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-trash text-danger"></i></a>
             </td>
         </tr>
         {% endfor %}

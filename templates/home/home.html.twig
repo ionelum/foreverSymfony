@@ -8,9 +8,9 @@
                     class="navbar navbar-expand-lg bg-body-tertiary align-items-end py-0"
                 >
                     <div class="container">
-                        <a class="navbar-brand pb-0 goHome" href="#">
+                        <a class="navbar-brand pb-0 goHome" href="{{ path('accueil') }}">
                             <img
-                                src="assets/img/index/newlogo3.webp"
+                                src="{{ asset('index/') }}newlogo3.webp"
                                 alt=""
                                 height="60"
                                 class="d-inline-block align-text-center"
@@ -36,7 +36,7 @@
                                     <a
                                         class="nav-link active goHome"
                                         aria-current="page"
-                                        href=""
+                                        href="{{ path('accueil') }}"
                                         >Accueil</a
                                     >
                                 </li>
@@ -55,7 +55,7 @@
                                         class="dropdown-menu px-2 py-2 mt-0 mb-1 myDropdown bg-light"
                                     >
                                         <div class="row text-center">
-                                        {# {% for category in categories %}
+                                        {% for category in categories %}
                                             <div class="col-lg-3 p-1">
                                                 <a
                                                     class="dropdown-item px-2"
@@ -70,7 +70,7 @@
                                                         {{ category.title }}
                                                     </p></a>
                                             </div>
-                                        {% endfor %} #}
+                                        {% endfor %}
                                         </div>
                                     </div>
                                 </li>
@@ -93,13 +93,13 @@
                                         >Commander</a
                                     >
                                 </li>
-                                <li class="nav-item mx-1">
+                                {# <li class="nav-item mx-1">
                                     <a
                                         class="nav-link"
                                         href="mailto:vluncasu@yahoo.com"
                                         >Contacter-moi</a
                                     >
-                                </li>
+                                </li> #}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     BackOffice
@@ -109,6 +109,8 @@
                                         <li><a class="dropdown-item" href="{{ path('listProduct') }}">Liste des produits</a></li>
                                         <li><a class="dropdown-item" href="{{ path('addCategory') }}">Ajout categorie</a></li>
                                         <li><a class="dropdown-item" href="{{ path('listCategory') }}">Liste des categories</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('addCarousel') }}">Ajout images carousel</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('listCarousel') }}">Liste images carousel</a></li>
                                     </ul>
                                 </li>
 

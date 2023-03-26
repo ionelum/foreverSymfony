@@ -1,0 +1,822 @@
+{% extends 'home/home.html.twig' %}
+
+
+
+
+
+{% block body  %}
+
+{{ parent() }}
+
+{# Debut Carousel #}
+
+<div class="container-fluid px-0" id="carousel">
+                <div
+                    id="carouselExampleCaptions"
+                    class="carousel slide carousel-fade"
+                    data-bs-ride="carousel"
+                >
+                    <div class="carousel-inner">
+
+                        {% for carousel in carousels %}
+                        {% if loop.index == 1 %}
+                        <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                        {% endif %}
+                            <img
+                                src="{{ asset('upload/') }}{{ carousel.picture }}"
+                                class="d-block w-100"
+                                alt="..."
+                            />
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev"
+                    >
+                        <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next"
+                    >
+                        <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+{# Fin Carousel #}
+
+<!--History start-->
+            <div class="container text-center my-5" id="history">
+                <h1 class="my-5" id="for-1">FOREVER LIVING PRODUCTS</h1>
+
+                <img
+                    class="mb-5"
+                    src="{{ asset('index/') }}aloe-small.webp"
+                    alt=""
+                />
+
+                <div class="row just">
+                    <div
+                        class="col-lg-6 my-3 px-4 border-end border-3 border-primary"
+                    >
+                        <p class="py-3 px-2">
+                            Fondé en 1978 à Scottsdale, en Arizona, Forever
+                            Living Products est le plus grand producteur,
+                            fabricant et distributeur de produits à base d’Aloe
+                            Vera dans le monde.
+                        </p>
+                        <p class="py-3 px-2">
+                            Depuis plus de quatre décennies, nous nous sommes
+                            consacrés à rechercher les meilleures sources de la
+                            nature pour le bien-être et la beauté afin de les
+                            partager dans le monde entier. Nous nous engageons à
+                            offrir à tous la qualité et la pureté, et nous avons
+                            la passion d'aider tout le monde à se sentir mieux.
+                        </p>
+                        <p class="py-3 px-2">
+                            Forever pratique l'intégration verticale, contrôlant
+                            tout, des champs à l'usine, en passant par la
+                            recherche et le développement, l'emballage,
+                            l'expédition et la distribution. Venez explorer
+                            notre gamme exclusive Forever de produits de
+                            bien-être et de beauté pour la nutrition, les soins
+                            de la peau, la gestion du poids, les soins
+                            personnels et les cosmétiques.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-6 my-auto px-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <img
+                                    src="{{ asset('index/') }}rex.webp"
+                                    alt=""
+                                    class="fluid img-thumbnail"
+                                />
+                            </div>
+                            <div class="col-8 my-4">
+                                <p class="px-3">
+                                    Rex Maughan s’est toujours passionné pour
+                                    l’amélioration de la santé, l’offre de
+                                    produits de qualité et la liberté
+                                    financière: c’est avec ces buts en tête
+                                    qu’il fonde, en 1978, Forever Living
+                                    Products.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" id="fromPlant">
+                            <div class="ratio ratio-20x9">
+                                <iframe
+                                    src="https://www.youtube.com/embed/pa4PlyO8ZfE?rel=0"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--History end-->
+
+            <!-- Bande History Start -->
+            <div class="container-fluid bande">
+                <div class="container text-center">
+                    <div class="row pt-3">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <p class="fw-bold fs-1plus text-primary">45+</p>
+                            <p class="fw-bold">Ans d'expérience</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <p class="fw-bold fs-1plus text-primary">160+</p>
+                            <p class="fw-bold">Pays présent</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <p class="fw-bold fs-1plus text-primary">N°1</p>
+                            <p class="fw-bold">Mondial de l'aloe vera</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <p class="fw-bold fs-1plus text-primary">9.5</p>
+                            <p class="fw-bold">Millions de FBO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bande History End -->
+
+            <!-- Aloe Vera Forever Start -->
+            <div class="container-fluid bgimage1 py-5" id="aloe-vera-forever">
+                <div class="container text-center px-0">
+                    <h1 class="my-5" id="for-1">L'ALOE VERA FOREVER</h1>
+
+                    <img
+                        class="mb-5"
+                        src="{{ asset('index/') }}aloe-small.webp"
+                        alt=""
+                    />
+
+                    <div
+                        class="row row-cols-1 row-cols-md-2 g-4 my-0 mx-0 px-md-5"
+                    >
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        Garantie Qualit&eacute; IASC
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Le label IASC vous garantit la
+                                        qualit&eacute; de l&#39;aloe vera et du
+                                        produit et ceux de la plantation, de la
+                                        production jusqu&#39;au
+                                        produit&nbsp;final.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        Production 100% Forever
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Forever poss&egrave;de ses propres
+                                        plantations<br />notamment au Texas, au
+                                        Mexique<br />
+                                        et en R&eacute;publique Dominicaine.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        Emballage 100% Recyclable
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Nos nouveaux emballages sont fait
+                                        &agrave; partir de mati&egrave;res 100%
+                                        recycl&eacute;es et sont 100%
+                                        recyclables. Ainsi Forever permet au
+                                        consommateur&nbsp;d&#39;utiliser des
+                                        produits &eacute;co-responsables.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        R&eacute;colt&eacute; &agrave; la Main
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Dans les plantations Forever, les
+                                        feuilles d&#39;Aloe vera sont toutes
+                                        r&eacute;colt&eacute;es&nbsp;&agrave; la
+                                        main et le gel d&#39;alo&egrave;s est
+                                        extrait manuellement. Des
+                                        contr&ocirc;les sont effectu&eacute;s
+                                        r&eacute;guli&egrave;rement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        Formule sans Conservateur
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Notre nouvelle&nbsp;formule d&#39;Aloe
+                                        Vera Forever est garantie sans
+                                        conservateur. Une parfaite association
+                                        entre, production, pH
+                                        &eacute;quilibr&eacute; et
+                                        packaging&nbsp;garantit&nbsp;une
+                                        protection optimale.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card myCard px-2 py-4">
+                                <div class="card-body">
+                                    <h5 class="card-title cardTitle">
+                                        Efficacit&eacute; Optimis&eacute;e
+                                    </h5>
+                                    <p class="card-text cardText">
+                                        Notre derni&egrave;re formule vous
+                                        garantisse que les
+                                        propri&eacute;t&eacute;s&nbsp;de la
+                                        plante restent inchang&eacute;es. Ainsi
+                                        notre Forever Aloe Vera Gel est
+                                        concentr&eacute; &agrave; 99,7%
+                                        d&#39;aloe vera pure et enrichi en
+                                        vitamine C.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aloe Vera Forever End -->
+
+            <!-- Bande  Aloe Vera Forever Start-->
+            <div class="container-fluid bande">
+                <div class="container text-center">
+                    <div class="row pt-3">
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}cert.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Certificat IASC Garantie Qualité
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}recyc.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Emballage 100% Recyclable
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}plantation.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">Plantations 100% Forever</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}recolt.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Récolte & Effeuillage à la Main
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}formula.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Une Formule Sans Conservateur
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}effic.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Efficacité Optimisée 99,7% Aloe Vera
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aloe Vera Forever End -->
+
+            <!-- Devenir FBO start -->
+            <div class="container text-center pt-5" id="devenirFbo">
+                <h1 class="my-5" id="for-1">DEVENIR FBO</h1>
+
+                <img
+                    class="mb-5"
+                    src="{{ asset('index/') }}aloe-small.webp"
+                    alt=""
+                />
+
+                <div class="row row-cols-1 row-cols-md-2 g-5 px-5 mx-0">
+                    <div class="col">
+                        <div class="card fboCard bg-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title cardTitle2">
+                                    NOVUS CUSTOMER
+                                </h5>
+                                <h6 class="card-title cardTitle3">
+                                    "Client privilégié -5%"
+                                </h6>
+                                <p class="card-text cardText2 px-3 just">
+                                    Le statut
+                                    <span class="bg-primary"
+                                        >Novus Customer</span
+                                    >
+                                    (client privilégié) est destiné aux
+                                    personnes ayant une consommation régulières
+                                    de produits Forever ou désirant acheter une
+                                    des 2 offres au choix suivantes:
+                                </p>
+                                <ul class="text-start cardText2 ps-5 pe-3">
+                                    <li>
+                                        Soit
+                                        <span class="bg-primary"
+                                            >110€ de produits au choix</span
+                                        >
+                                    </li>
+                                    <li>
+                                        ou
+                                        <span class="bg-primary"
+                                            >le pack découverte à 110€ (remisé
+                                            de 12%)</span
+                                        >
+                                    </li>
+                                </ul>
+                                <ul class="text-start cardText2 ps-5 pe-3">
+                                    <li>
+                                        1 ère commande de
+                                        <span class="bg-primary"
+                                            >110€ minimum</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >5% de remise</span
+                                        >
+                                        minimum sur vos futurs achats
+                                    </li>
+                                    <li>
+                                        Vous disposez d'un numéro agréments
+                                        <span class="bg-primary">FBO</span>
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >Possibilité d'évolution</span
+                                        >
+                                        vers le statut
+                                        <span class="bg-primary">FBO</span>
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >Vous ne pouvez</span
+                                        >
+                                        ni vendre, ni parrainer
+                                    </li>
+                                    <li>Pas de formation initiale</li>
+                                    <li>
+                                        Consommation personnelle et entourage
+                                    </li>
+                                    <li>
+                                        Frais de port
+                                        <span class="bg-primary"
+                                            >5€ < 120€ d'achats</span
+                                        >
+                                    </li>
+                                    <li>
+                                        Frais de port
+                                        <span class="bg-primary"
+                                            >gratuit > 120€ d'achats</span
+                                        >
+                                    </li>
+                                </ul>
+                                <a
+                                    href="#"
+                                    class="my-2 btn btn-lg btn-success btnFBO"
+                                    >Devenir Client Privilégié</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card fboCard bg-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title cardTitle2">
+                                    DISTRIBUTEUR FOREVER
+                                </h5>
+                                <h6 class="card-title cardTitle3">
+                                    "FBO Forever Business Owner"
+                                </h6>
+                                <p class="card-text cardText2 px-3 my-3 just">
+                                    Le statut Distributeur Forever (FBO Forever
+                                    Business Owner) est destiné aux personnes
+                                    souhaitant se lancer dans l'activité de
+                                    distribution (vente) et désirant passer une
+                                    première commande d'un montant minimum de
+                                    397€
+                                    <br />(Pack de lancement Go 2 FBO).
+                                </p>
+                                <ul class="text-start cardText2 mt-4 ps-5 pe-3">
+                                    <li>
+                                        1 ère commande de
+                                        <span class="bg-primary"
+                                            >397€ minimum</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >30% de remise</span
+                                        >
+                                        minimum sur vos futurs achats
+                                    </li>
+                                    <li>Vous êtes VDI (Vendeur à domicile)</li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >Possibilité d'évolution</span
+                                        >
+                                        vers
+                                        <span class="bg-primary"
+                                            >-48% (Manager)</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >Vous pouvez</span
+                                        >
+                                        parrainer et vendre
+                                    </li>
+                                    <li>
+                                        <span class="bg-primary"
+                                            >Formation initiale</span
+                                        >
+                                        Forever de
+                                        <span class="bg-primary"
+                                            >13 semaines</span
+                                        >
+                                    </li>
+                                    <li>
+                                        Consommation personnelle, entourage et
+                                        vente
+                                    </li>
+                                    <li>
+                                        Frais de port
+                                        <span class="bg-primary"
+                                            >5€ < 120€ d'achats</span
+                                        >
+                                    </li>
+                                    <li>
+                                        Frais de port
+                                        <span class="bg-primary"
+                                            >gratuit > 120€ d'achats</span
+                                        >
+                                    </li>
+                                </ul>
+
+                                <a
+                                    href="#"
+                                    class="my-2 btn btn-lg btn-success btnFBO"
+                                    >Devenir FBO</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center cardText2 text-primary my-3">
+                    VOS REVENUS DÉPENDENT UNIQUEMENT DE LA QUALITÉ DU TRAVAIL
+                    FOURNI.
+                </p>
+                <p class="fs-5 fw-bold">
+                    Vous pourrez accéder à votre indépendance financière aussi
+                    rapidement que vous le souhaitez.
+                </p>
+                <p class="fs-5 fw-bold">
+                    Vous souhaitez un complément de revenus ou beaucoup plus ?
+                    C’est vous qui choisissez !
+                </p>
+                <p class="fs-5 fw-bold mb-4">
+                    Vous décidez de vos horaires et des personnes avec qui vous
+                    désirez travailler tout en bénéficiant<br />de notre soutien
+                    et de celui de Forever Living Products.
+                </p>
+            </div>
+            <!-- Devenir FBO end -->
+
+            <!-- Bande devenir FBO start -->
+            <div class="container-fluid bande">
+                <div class="container text-center">
+                    <div class="row pt-3">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}money.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Des revenus<br />généreux
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}shield.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Un modèle<br />sécurisant
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}bingo.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Une formation<br />permanente
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}medal.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Basé sur la<br />reconnaissance
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bande devenir FBO end -->
+
+            <!-- Commander Start -->
+            <div class="container-fluid bgimage2 pb-5" id="commander">
+                <div class="container text-center pt-5">
+                    <h1 class="my-5" id="for-1">COMMENT COMMANDER ?</h1>
+
+                    <img
+                        class="mb-5"
+                        src="{{ asset('index/') }}aloe-small.webp"
+                        alt=""
+                    />
+
+                    <div class="row row-cols-1 row-cols-md-3 g-5 px-5 mx-0">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img
+                                        class="img-fluid my-5"
+                                        src="{{ asset('index/') }}phone-109.png"
+                                        alt=""
+                                    />
+                                    <p class="card-text cardText3 px-3">
+                                        Vous souhaitez être consommateur ou
+                                        devenir simple client ? Vous avez la
+                                        possibilité de nous contacter par
+                                        téléphone afin de passer vos commandes
+                                        de produits Forever !
+                                    </p>
+                                    <a
+                                        href="#"
+                                        class="my-2 btn btn-lg btn-success btnFBO"
+                                        >Commander par téléphone</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img
+                                        class="img-fluid my-5"
+                                        src="{{ asset('index/') }}mail-109.png"
+                                        alt=""
+                                    />
+                                    <p class="card-text cardText3 px-3">
+                                        Vous avez la également la possibilité de
+                                        nous envoyer vos commandes de produits
+                                        Forever par email.<br />Nous vous
+                                        répondrons dans les meilleurs delais !
+                                    </p>
+                                    <a
+                                        href="mailto:vluncasu@yahoo.com"
+                                        class="my-2 btn btn-lg btn-success btnFBO"
+                                        >Commander par email</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img
+                                        class="img-fluid my-5"
+                                        src="{{ asset('index/') }}store-109.png"
+                                        alt=""
+                                    />
+                                    <p class="card-text cardText3 px-3">
+                                        Commandez en toute liberté sur notre
+                                        boutique en ligne sécurisée en tant que
+                                        simple client ! Faites vous livrer
+                                        rapidement en 48h à 72h en point relais
+                                        et à domicile en J+1 !
+                                    </p>
+                                    <a
+                                        href="#"
+                                        class="my-2 btn btn-lg btn-success btnFBO"
+                                        >Commander en ligne</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Commander End -->
+
+            <!-- Bande Commander Start -->
+            <div class="container-fluid bande">
+                <div class="container text-center">
+                    <div class="row d-flex justify-content-center pt-3">
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}30days.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Garantie satisfaction Produits
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}delivery.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Livraison rapide en point relais 48 à 72 h
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}freedelivery.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Gratuit > 100€ d'achats 3€ < 100 d'achats
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}sav.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Service Après-Vente à votre écoute
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <img
+                                class="img-fluid"
+                                src="{{ asset('index/') }}sec.webp"
+                                alt=""
+                            />
+                            <p class="fw-bold mt-1">
+                                Suivi et Conseils Personnalisés
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bande Commander End -->
+
+            <!-- Contact start -->
+            <div class="container-fluid py-5" id="contact">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1240.9117510910028!2d2.529285419008426!3d48.77424210988618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60b4c4f42e0f5%3A0xba10f1520168623b!2sVioleta%20Moglan%20Forever%20Living%20Products%20Aloe%20Vera!5e0!3m2!1sen!2sfr!4v1678798100677!5m2!1sen!2sfr"
+                                width="600"
+                                height="450"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                        <div
+                            class="col-lg-6 border-start border-5 border-primary"
+                        >
+                            <h3 class="mt-3 text-primary fw-bold">
+                                Violeta Moglan
+                            </h3>
+                            <p>
+                                <i class="fa-regular fa-address-book fs-5"></i>
+                                38 Rue de la Fosse Rouge
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-location-dot fs-5"></i>
+                                94370 Sucy-en-Brie
+                            </p>
+                            <p>
+                                <i class="fa-regular fa-envelope fs-5"></i>
+                                vluncasu@yahoo.com
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-phone-volume fs-5"></i>
+                                +33 75 88 06 56 35
+                            </p>
+                            <h3 class="mt-3 text-primary fw-bold">
+                                Horaires d'ouverture
+                            </h3>
+                            <p>lundi - vendredi 9h00-19h00</p>
+                            <p>samedi 9h00-14h00</p>
+                            <h3 class="my-3 text-primary fw-bold">
+                                Une question? Contacte moi!
+                            </h3>
+                            <a
+                                role="button"
+                                class="btn btn-primary btn-lg mx-5"
+                                href="mailto:vluncasu@yahoo.com"
+                                >Evoyer mail</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact end -->
+        </div>
+        <!-- Main Sequence End -->
+
+{% endblock %}
+
+
+
+
+{% block title  %}
+parent()
+{% endblock %}

@@ -31,14 +31,16 @@ class HomeCategoryController extends AbstractController
     /**
     *@Route("/home_category/{id}", name="homeCategory")
     */
-    public function homeCategory(ProductRepository $productRepository, Category $category)
+    public function homeCategory(ProductRepository $productRepository, Category $category, CategoryRepository $categoryRepository)
     {
         
         $products = $productRepository->findBy(['category' => $category]);
+        $categories = $categoryRepository->findAll();
     
     return $this->render('home_category/homeCategory.html.twig', [
         'products' => $products,
-        'category' => $category
+        'category' => $category,
+        'categories' => $categories
     ]);
     }
 
