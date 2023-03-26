@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/category")
+ * @IsGranted("ROLE_ADMIN")
  */
 class AdminController extends AbstractController
 {
@@ -33,7 +34,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             
             $pictureFile = $form->get('picture_normal')->getData();
-            $picture_bdd = date("Y-m-d-H-i-s") . "-" . $pictureFile->getClientOriginalName();
+            $picture_bdd = date("Y-m-d-H-i-s") . "-normal-" . $pictureFile->getClientOriginalName();
             try {
                 
                 $pictureFile->move($this->getParameter('upload_directory'), $picture_bdd);
@@ -45,7 +46,7 @@ class AdminController extends AbstractController
             $category->setPictureNormal($picture_bdd);
 
             $pictureFile = $form->get('picture_wide')->getData();
-            $picture_bdd = date("Y-m-d-H-i-s") . "-" . $pictureFile->getClientOriginalName();
+            $picture_bdd = date("Y-m-d-H-i-s") . "-wide-" . $pictureFile->getClientOriginalName();
             try {
                 
                 $pictureFile->move($this->getParameter('upload_directory'), $picture_bdd);
@@ -89,7 +90,7 @@ class AdminController extends AbstractController
 
             if ($picture_edit_file_normal){
 
-                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file_normal->getClientOriginalName();
+                $picture_bdd = date("Y-m-d-H-i-s") . "-normal-" . $picture_edit_file_normal->getClientOriginalName();
 
                 unlink($this->getParameter('upload_directory').'/'.$category->getPictureNormal());
 
@@ -103,7 +104,7 @@ class AdminController extends AbstractController
 
             if ($picture_edit_file_wide){
 
-                $picture_bdd = date("Y-m-d-H-i-s") . "-" . $picture_edit_file_wide->getClientOriginalName();
+                $picture_bdd = date("Y-m-d-H-i-s") . "-wide-" . $picture_edit_file_wide->getClientOriginalName();
 
                 unlink($this->getParameter('upload_directory').'/'.$category->getPictureWide());
 

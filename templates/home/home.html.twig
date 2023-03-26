@@ -100,9 +100,10 @@
                                         >Contacter-moi</a
                                     >
                                 </li> #}
+                                {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    BackOffice
+                                    Back-office
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ path('addProduct') }}">Ajout produit</a></li>
@@ -113,34 +114,47 @@
                                         <li><a class="dropdown-item" href="{{ path('listCarousel') }}">Liste images carousel</a></li>
                                     </ul>
                                 </li>
-
+                                {% endif %}
+                                {% if not app.user %}
+                                <li class="nav-item mx-1 mt-1">
+                                    <a
+                                        role="button"
+                                        class="btn btn-info text-primary fw-bolder"
+                                        href="{{ path('register') }}"
+                                        >Inscription</a>
+                                </li>
                                 <li class="nav-item mx-1 mt-1">
                                     <a
                                         role="button"
                                         class="btn btn-danger text-primary fw-bolder"
-                                        href=""
-                                        >Boutique en ligne</a
-                                    >
+                                        href="{{ path('login') }}"
+                                        >Connexion</a>
                                 </li>
+                                {% else %}
+                                <li class="nav-item mx-1 mt-1">
+                                    <a
+                                        role="button"
+                                        class="btn btn-secondary text-primary fw-bolder"
+                                        href="{{ path('logout') }}"
+                                        >Deconnexion</a>
+                                </li>
+                                {% endif %}
                             </ul>
-                            <!-- <form class="d-flex" role="search">
-                                <input
-                                    class="form-control me-2"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                />
-                                <button class="btn btn-outline-success" type="submit">
-                                    Search
-                                </button>
-                            </form> -->
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
 
-
+{% for type, messages in app.flashes %}
+    <div class="container my-4">
+        {% for message in messages %}
+            <div class="alert w-50 mx-auto alert-{{ type }}  text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
 
 
 
@@ -149,5 +163,6 @@
 
 
 
-{% block title  %}
+{% block title %}
+    Violeta's Forever | 
 {% endblock %}

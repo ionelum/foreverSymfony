@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-    *@Route("/home", name="home")
+    *@Route("/", name="accueil")
     */
     public function home(ProductRepository $productRepository, CategoryRepository $categoryRepository, CarouselRepository $carouselRepository)
     {
@@ -23,31 +23,31 @@ class HomeController extends AbstractController
     
     
     
-    return $this->render('home/home.html.twig', [
+    return $this->render('home/accueil.html.twig', [
         'products' => $products,
         'categories' => $categories,
         'carousels' => $carousels
     ]);
     }
 
-    /**
-    *@Route("/accueil", name="accueil")
-    */
-    public function accueil(ProductRepository $productRepository, CategoryRepository $categoryRepository, CarouselRepository $carouselRepository)
-    {
+    // /**
+    // *@Route("/accueil", name="accueil")
+    // */
+    // public function accueil(CategoryRepository $categoryRepository, CarouselRepository $carouselRepository)
+    // {
         
-        $categories = $categoryRepository->findAll();
-        $carousels = $carouselRepository->findAll();
+    //     $categories = $categoryRepository->findAll();
+    //     $carousels = $carouselRepository->findAll();
     
     
     
     
-    return $this->render('home/accueil.html.twig', [
+    // return $this->render('home/accueil.html.twig', [
         
-        'categories' => $categories,
-        'carousels' => $carousels
-    ]);
-    }
+    //     'categories' => $categories,
+    //     'carousels' => $carousels
+    // ]);
+    // }
     
     
 }
