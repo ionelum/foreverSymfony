@@ -28,10 +28,10 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div
-                            class="collapse navbar-collapse"
+                            class="collapse navbar-collapse justify-content-center"
                             id="navbarSupportedContent"
                         >
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav mb-2 mb-lg-0">
                                 <li class="nav-item mx-2">
                                     <a
                                         class="nav-link active goHome"
@@ -77,19 +77,19 @@
                                 <li class="nav-item mx-1">
                                     <a
                                         class="nav-link goHome"
-                                        href="#aloe-vera-forever"
+                                        href="{{ path('accueil') }}#aloe-vera-forever"
                                         >Aloe Vera & Forever</a
                                     >
                                 </li>
                                 <li class="nav-item mx-1">
                                     <a
                                         class="nav-link goHome"
-                                        href="#devenirFbo"
+                                        href="{{ path('accueil') }}#devenirFbo"
                                         >Devenir FBO</a
                                     >
                                 </li>
                                 <li class="nav-item mx-1">
-                                    <a class="nav-link goHome" href="#commander"
+                                    <a class="nav-link goHome" href="{{ path('accueil') }}#commander"
                                         >Commander</a
                                     >
                                 </li>
@@ -108,8 +108,10 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ path('addProduct') }}">Ajout produit</a></li>
                                         <li><a class="dropdown-item" href="{{ path('listProduct') }}">Liste des produits</a></li>
+                                        <div class="dropdown-divider"></div>
                                         <li><a class="dropdown-item" href="{{ path('addCategory') }}">Ajout categorie</a></li>
                                         <li><a class="dropdown-item" href="{{ path('listCategory') }}">Liste des categories</a></li>
+                                        <div class="dropdown-divider"></div>
                                         <li><a class="dropdown-item" href="{{ path('addCarousel') }}">Ajout images carousel</a></li>
                                         <li><a class="dropdown-item" href="{{ path('listCarousel') }}">Liste images carousel</a></li>
                                     </ul>
@@ -120,13 +122,6 @@
                                     <a
                                         role="button"
                                         class="btn btn-info text-primary fw-bolder"
-                                        href="{{ path('register') }}"
-                                        >Inscription</a>
-                                </li>
-                                <li class="nav-item mx-1 mt-1">
-                                    <a
-                                        role="button"
-                                        class="btn btn-danger text-primary fw-bolder"
                                         href="{{ path('login') }}"
                                         >Connexion</a>
                                 </li>
@@ -164,5 +159,5 @@
 
 
 {% block title %}
-    Violeta's Forever | 
+Violeta's Forever | 
 {% endblock %}

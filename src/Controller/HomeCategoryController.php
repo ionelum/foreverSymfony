@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeCategoryController extends AbstractController
 {
     /**
-    *@Route("/home_category", name="homeCategories")
+    *@Route("/home_categories", name="homeCategories")
     */
     public function homeCategories(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {

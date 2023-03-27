@@ -18,12 +18,12 @@
 
         {% for category in categories %}
 
-        <tr>
-            <td>{{ category.title }}</td>
-            <td>{{ category.alias }}</td>
-            <td><img src="{{ asset('upload/' ~ category.pictureNormal) }}" width="90" alt=""></td>
-            <td><img src="{{ asset('upload/' ~ category.pictureWide) }}" width="90" alt=""></td>
-            <td>
+        <tr">
+            <td class="py-0">{{ category.title }}</td>
+            <td class="py-0">{{ category.alias }}</td>
+            <td class="py-0"><img src="{{ asset('upload/' ~ category.pictureNormal) }}" width="120" alt=""></td>
+            <td class="py-0"><img src="{{ asset('upload/' ~ category.pictureWide) }}" width="160" alt=""></td>
+            <td class="py-0">
                 <a href="{{ path('editCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-edit text-info"></i></a>
                 <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-trash text-danger"></i></a>
             </td>

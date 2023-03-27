@@ -68,28 +68,38 @@
             <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    {# <h6 class="collapse-header">Gestion produits:</h6> #}
                     <a class="collapse-item" href="{{ path('addProduct') }}">Ajout produit</a>
                     <a class="collapse-item" href="{{ path('listProduct') }}">Voir les produits</a>
-                    <a class="collapse-item" href="{{ path('addCategory') }}">Ajout catégories produit</a>
-                    <a class="collapse-item" href="{{ path('listCategory') }}">Voir les catégories produit</a>
                 </div>
             </div>
-
         </li>
 
-        <hr class="sidebar-divider d-none d-md-block">
-
+        <hr class="sidebar-divider">
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion caroussel</span>
+                <span>Gestion categories</span>
             </a>
             <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    {# <h6 class="collapse-header">Gestion caroussel:</h6> #}
+                    <a class="collapse-item" href="{{ path('addCategory') }}">Ajout catégories produit</a>
+                    <a class="collapse-item" href="{{ path('listCategory') }}">Voir les catégories produit</a>
+                </div>
+            </div>
+        </li>
+
+        <hr class="sidebar-divider">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Gestion caroussel</span>
+            </a>
+            <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ path('addCarousel') }}">Ajout images carousel</a>
                     <a class="collapse-item" href="{{ path('listCarousel') }}">Voir images carousel</a>
                 </div>
@@ -99,27 +109,10 @@
 
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
-                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion carte resto</span>
-            </a>
-            <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    {# <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="">Ajout produit</a> #}
-                </div>
-            </div>
-        </li>
-
-
-        <hr class="sidebar-divider">
-        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion formule</span>
+                <span>Gestion ...</span>
             </a>
         </li>
 
@@ -129,7 +122,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion bar / cave</span>
+                <span>Gestion ...</span>
             </a>
         </li>
 
@@ -139,7 +132,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion navigation</span>
+                <span>Gestion ...</span>
             </a>
         </li>
 
@@ -149,7 +142,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion evènements</span>
+                <span>Gestion ...</span>
             </a>
         </li>
 
@@ -159,7 +152,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion newsletter</span>
+                <span>Gestion ...</span>
             </a>
         </li>
 
@@ -173,7 +166,7 @@
                 aria-expanded="true"
                 aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Gestion abonnés newsletter</span>
+                <span>Gestion ...</span>
             </a>
 
         </li>
