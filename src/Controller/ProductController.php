@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/product")
- */
+
 class ProductController extends AbstractController
 {
     /**
-    *@Route("/add", name="addProduct")
+    *@Route("/addProduct", name="addProduct")
     */
     public function addProduct(Request $request, EntityManagerInterface $manager)
     {
@@ -66,7 +64,7 @@ class ProductController extends AbstractController
     
     /**
      *
-     * @Route("/list", name="listProduct")
+     * @Route("/listProduct", name="listProduct")
      */
     public function listProduct(ProductRepository $productRepository)
     {

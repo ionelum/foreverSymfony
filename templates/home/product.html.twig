@@ -1,0 +1,71 @@
+{% extends 'home/home.html.twig' %}
+
+
+
+{% block body  %}
+
+{{ parent() }}
+
+
+<div class="container my-5">
+    <div class="container-fluid">
+        <div class="row text-center align-items-center">
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <img
+                                            src="{{ asset('upload/') }}{{ product.picture }}"
+                                            alt="..."
+                                            class="w-100"
+                />
+            </div>
+                                    <div class="col-lg-7 col-sm-12 col-xs-12 px-0 px-md-3">
+                                        <h1>{{ product.title }}</h1>
+                                        <p class="my-4">
+                                        {{ product.description }}
+                                        </p>
+                                        <h5 class="my-4">Contenance : {{ product.volume }}</h5>
+                                        <h5 class="my-4">
+                                            Prix France Métropole TTC : <span class="text-bg-primary">{{ product.price|number_format(2) }} €</span>
+                                        </h5>
+                                        <h5 class="my-4">Réf. {{ product.ref }}</h5>
+                                        <hr/>
+                                        <p class="my-4">
+                                        {{ product.volume }}
+                                        </p>
+                                        <h4 class="my-4">
+                                            Conseils d'utilisation
+                                        </h4>
+                                        <hr />
+                                        <p>
+                                        {{ product.mode }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+</div>
+
+<div class="container">
+
+    {% if app.user %}
+
+    {{ form(form) }}
+    
+    {% endif %}
+
+    {% for review in reviews %}
+    
+        <p>{{ review.content }}</p>
+        <p>{{ review.user.email }}</p>
+        <p>{{ review.date | date('d-m-Y') }}</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+
+
+
+{% block title  %}
+{{ parent() }}{{ product.title }}
+{% endblock %}

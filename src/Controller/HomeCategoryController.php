@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeCategoryController extends AbstractController
 {
     /**
-    *@Route("/home_categories", name="homeCategories")
+    *@Route("/categories", name="homeCategories")
     */
     public function homeCategories(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
@@ -22,22 +22,24 @@ class HomeCategoryController extends AbstractController
     
     
     
-    return $this->render('home_category/homeCategories.html.twig', [
+    return $this->render('home/categories.html.twig', [
         'products' => $products,
         'categories' => $categories
     ]);
     }
 
     /**
-    *@Route("/home_category/{id}", name="homeCategory")
+    *@Route("/category/{id}", name="homeCategory")
     */
     public function homeCategory(ProductRepository $productRepository, Category $category, CategoryRepository $categoryRepository)
     {
         
         $products = $productRepository->findBy(['category' => $category]);
         $categories = $categoryRepository->findAll();
+
+        // dd($products);
     
-    return $this->render('home_category/homeCategory.html.twig', [
+    return $this->render('home/category.html.twig', [
         'products' => $products,
         'category' => $category,
         'categories' => $categories

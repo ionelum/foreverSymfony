@@ -8,7 +8,8 @@ use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use function Sodium\add;
@@ -20,8 +21,9 @@ class SecurityController extends AbstractController
      *
      * @Route("/register", name="register")
      */
-    public function register(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $hasher, CategoryRepository $categoryRepository)
+    public function register(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $hasher, CategoryRepository $categoryRepository, MailerInterface $mailer)
     {
+        // dd($request);
 
         $user=new User();
 
@@ -34,8 +36,27 @@ class SecurityController extends AbstractController
             $user->setPassword($hasher->hashPassword($user,$user->getPassword()));
 
             $manager->persist($user);
+
             $manager->flush();
+
+            $userMail = $user->getEmail();
+
+            $email = (new Email())
+            ->from('ionel.moglan@gmail.com')
+            ->to($userMail)
+            //->cc('cc@example.com')
+            //->bcc('bcc@example.com')
+            //->replyTo('fabien@example.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('Inscription sur Violeta\'s Forever!')
+            ->text('Merci pour votre inscription!')
+            ->html('<p>Merci pour votre inscription</p>');
+
+            $mailer->send($email);
+
             $this->addFlash('success', 'Félicitation, vous êtes inscrit, connectez vous à présent');
+
+            return $this->redirectToRoute('login');
 
         }
 
