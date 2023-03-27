@@ -4,13 +4,33 @@
     
     {{ parent() }}
 
-    <br><br><br>
-    <h1 class="text-center my-4">Inscription</h1>
-    <h2></h2>
-    <div class="container">
-        {{ form(form) }}
+    <br><br>
+
+    <h1 class="text-center my-5">Inscription</h1>
+    
+    <div class="container col-4 my-5">
+
+        {{ form_start(form) }}
+        <div class="container my-3">
+            {{ form_row(form.email) }}
+        </div>
+        <div class="container my-3">
+            {{ form_row(form.password) }}
+        </div>
+        <div class="container my-3">
+            {{ form_row(form.confirmPassword) }}
+        </div>
+        <div class="container my-3">
+            {{ form_row(form.nickname) }}
+        </div>
+        <div class="container my-3 text-center">
+            {{ form_row(form.Enregistrer) }}
+        </div>
+        {{ form_end(form) }}
+
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <br><br><br><br><br><br><br>
 
 {% endblock %}
 

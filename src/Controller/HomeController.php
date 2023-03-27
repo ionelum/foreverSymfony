@@ -48,9 +48,9 @@ class HomeController extends AbstractController
 
         $categories = $categoryRepository->findAll();
 
-        $reviews = $product->getReviews();
+        // $reviews = $product->getReviews();
 
-        // $reviews = $reviewRepository->findBy(['product' => $id]);
+        $reviews = $reviewRepository->findBy(['product' => $id]);
 
         $review = new Review();
 
@@ -69,8 +69,10 @@ class HomeController extends AbstractController
             $manager->persist($review);
 
             $manager->flush();
-            
+
             $this->addFlash('success', 'Avis ajouté');
+
+            header("Refresh:0");
             
         }
 
@@ -81,7 +83,6 @@ class HomeController extends AbstractController
         'categories' => $categories,
         'reviews' => $reviews,
         'form' => $form->createView()
-
     ]);
     }
     
