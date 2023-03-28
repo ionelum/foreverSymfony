@@ -5,13 +5,11 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Product;
 use App\Entity\Review;
-use App\Entity\User;
 use App\Form\ReviewType;
 use App\Repository\CarouselRepository;
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ReviewRepository;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,6 +33,41 @@ class HomeController extends AbstractController
         'products' => $products,
         'categories' => $categories,
         'carousels' => $carousels
+    ]);
+    }
+
+    /**
+    *@Route("/categories", name="homeCategories")
+    */
+    public function homeCategories(ProductRepository $productRepository, CategoryRepository $categoryRepository)
+    {
+        $products = $productRepository->findAll();
+        $categories = $categoryRepository->findAll();
+    
+    
+    
+    
+    return $this->render('home/categories.html.twig', [
+        'products' => $products,
+        'categories' => $categories
+    ]);
+    }
+
+    /**
+    *@Route("/category/{id}", name="homeCategory")
+    */
+    public function homeCategory(ProductRepository $productRepository, Category $category, CategoryRepository $categoryRepository)
+    {
+        
+        $products = $productRepository->findBy(['category' => $category]);
+        $categories = $categoryRepository->findAll();
+
+        // dd($products);
+    
+    return $this->render('home/category.html.twig', [
+        'products' => $products,
+        'category' => $category,
+        'categories' => $categories
     ]);
     }
 
@@ -72,11 +105,11 @@ class HomeController extends AbstractController
 
             $this->addFlash('success', 'Avis ajouté');
 
-            header("Refresh:0");
+            return $this->redirectToRoute('homeProduct', ['id' => $id]);
             
         }
 
-        // dd($reviews);
+        // dd($reviews[0]->getUser()->getId());
     
     return $this->render('home/product.html.twig', [
         'product' => $product,
@@ -86,6 +119,19 @@ class HomeController extends AbstractController
     ]);
     }
     
+    /**
+     * @Route("/deleteReview/{id}", name="deleteReview")
+     */
+    public function deleteReview(Review $review, EntityManagerInterface $manager)
+    {
+        $idProduct = $review->getProduct()->getId();
+        $manager->remove($review);
+        $manager->flush();
+
+        $this->addFlash('success', 'Avis supprimé');
+
+        return $this->redirectToRoute('homeProduct', ['id' => $idProduct]);
+    }
 
     
 }

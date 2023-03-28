@@ -16,7 +16,6 @@ use function Sodium\add;
 
 class SecurityController extends AbstractController
 {
-
     /**
      *
      * @Route("/register", name="register")

@@ -47,7 +47,7 @@
 
     {% if app.user %}
 
-    <h1 class="pt-5">Votre avis nous intéresse!</h1>
+    <h2 class="pt-5">Votre avis nous intéresse!</h2>
         {{ form_start(form) }}
     <div class="container-fluid my-4 text-start">
         {{ form_row(form.content) }}
@@ -61,7 +61,7 @@
 
     {% if reviews %}
 
-    <h1 class="mt-5">Les avis de nos clients!</h1>
+    <h2 class="mt-5">Les avis de nos clients!</h2>
 
     <table class="table table-striped">
         <thead>
@@ -69,6 +69,7 @@
             <th>Nom</th>
             <th>Date</th>
             <th>Avis</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -79,6 +80,11 @@
             <td class="py-4">{{ review.user.nickname }}</td>
             <td class="py-4 text-muted">{{ review.date | date('d-m-Y h-m-s') }}</td>
             <td class="py-4">{{ review.content }}</td>
+            <td class="py-4">
+                {% if app.user and app.user.id == review.user.id %}
+                <a href="{{ path('deleteReview', {'id': review.id }) }}" class="mx-2"><i class="fas fs-5 fa-trash text-danger"></i></a>
+                {% endif %}
+            </td>
         </tr>
 
     {% endfor %}
