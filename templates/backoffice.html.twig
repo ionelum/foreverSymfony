@@ -109,21 +109,33 @@
 
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities4"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion ...</span>
+                <span>Gestion utilisateurs</span>
             </a>
+            <div id="collapseUtilities4" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ path('listUsers') }}">Liste des utilisateurs</a>
+                </div>
+            </div>
         </li>
 
 
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities5"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Gestion ...</span>
+                <span>Gestion avis</span>
             </a>
+            <div id="collapseUtilities5" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ path('listReviews') }}">Liste des avis</a>
+                </div>
+            </div>
         </li>
 
 

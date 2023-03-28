@@ -1,0 +1,25 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block title  %}
+
+{% endblock %}
+
+{% block body  %}
+
+<div class="container">
+
+    <h1>Modification utilisateur</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.nickname) }}
+    {{ form_row(form.password) }}
+    {{ form_row(form.confirmPassword) }}
+    {{ form_row(form.Enregistrer) }}
+    {{ form_end(form) }}
+
+</div>
+
+
+
+
+{% endblock %}

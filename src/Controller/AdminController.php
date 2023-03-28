@@ -5,12 +5,17 @@ namespace App\Controller;
 use App\Entity\Carousel;
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\User;
 use App\Form\CarouselType;
 use App\Form\CategoryType;
 use App\Form\ProductType;
+use App\Form\RegistrationAdminType;
+use App\Form\RegistrationType;
 use App\Repository\CarouselRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
+use App\Repository\ReviewRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +29,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-    *@Route("/addProduct", name="addProduct")
+    *@Route("/product/add", name="addProduct")
     */
     public function addProduct(Request $request, EntityManagerInterface $manager)
     {
@@ -73,7 +78,7 @@ class AdminController extends AbstractController
     
     /**
      *
-     * @Route("/listProduct", name="listProduct")
+     * @Route("/product/list", name="listProduct")
      */
     public function listProduct(ProductRepository $productRepository)
     {
@@ -91,13 +96,12 @@ class AdminController extends AbstractController
 
     /**
      *
-     * @Route("/edit/{id}", name="editProduct")
+     * @Route("/product/edit/{id}", name="editProduct")
      */
     public function editProduct(Product $product, Request $request, EntityManagerInterface $manager)
     {
 
-        
-        $form=$this->createForm(ProductType::class, $product, ['edit'=>true]);
+        $form=$this->createForm(ProductType::class, $product);
 
         $form->handleRequest($request);
 
@@ -135,7 +139,7 @@ class AdminController extends AbstractController
 
     /**
      *
-     * @Route("/delete/{id}", name="deleteProduct")
+     * @Route("/product/delete/{id}", name="deleteProduct")
      */
     public function deleteProduct(Product $product, EntityManagerInterface $manager)
     {
@@ -378,4 +382,77 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('listCarousel');
     }
 
+    /**
+     * @Route("/user/list", name="listUsers")
+     */
+    public function listUsers(UserRepository $userRepository)
+    {
+
+        $users = $userRepository->findAll();
+        
+
+        return $this->render('admin/listUsers.html.twig', [
+            'users' => $users
+
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/user/delete/{id}", name="deleteUser")
+     */
+    public function deleteUser(User $user, EntityManagerInterface $manager)
+    {
+
+        $manager->remove($user);
+        $manager->flush();
+
+        $this->addFlash('success', 'Utilisateur supprimé');
+        
+        return $this->redirectToRoute('listUsers');
+    }
+
+    /**
+     *
+     * @Route("/user/edit/{id}", name="editUser")
+     */
+    public function editUser(User $user, Request $request, EntityManagerInterface $manager)
+    {
+
+        $form=$this->createForm(RegistrationType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash('success', 'Utilisateur modifié');
+
+            return $this->redirectToRoute('listUsers');
+
+        }
+
+        return $this->render('admin/editUser.html.twig', [
+            'form'=>$form->createView(),
+            'user'=>$user
+
+        ]);
+    }
+
+    /**
+     * @Route("/review/list", name="listReviews")
+     */
+    public function listReviews(ReviewRepository $reviewRepository)
+    {
+
+        $reviews = $reviewRepository->findBy([], ['id' => 'DESC']);
+        
+
+        return $this->render('admin/listReviews.html.twig', [
+            'reviews' => $reviews
+
+        ]);
+    }
 }
