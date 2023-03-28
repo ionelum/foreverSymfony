@@ -5,7 +5,8 @@
     <meta name="viewport"
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}DressInBackoffice | {% endblock %}</title>
+    <title>{% block title %}Violeta's Forever Backoffice {% endblock %}</title>
+
     {% block stylesheets %}
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/slate/bootstrap.min.css" integrity="sha512-GixPbJydZH3yyD23SgcC/i/FIhLb+0F26ABBvEg9ejj90hYuXXjPphWTWTX5dIuolObna6iXz1nr5nog6Dex7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,14 +18,14 @@
 </head>
 <body >
 <div   class="row justify-content-center">
-    <div class="col-md-2 bg-white ">
+    <div class="col-md-2">
         <ul class="nav flex-column">
-            <li class="nav-item ms-5 mt-5">
+            <li class="nav-item ms-5 mt-5 ps-5">
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                     <a href="{{ path('accueil') }}" class="btn btn-primary active"><i class="fas fa-user fa-2x"></i></a>
-                    <div class="btn-group" role="group">
+                    <div class="btn-group dropend" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {# <a class="dropdown-item" href="#">Profil</a> #}
                             <a class="dropdown-item" href="{{ path('accueil') }}">Accès Front</a>
                             <hr>
@@ -34,9 +35,9 @@
                 </div>
             </li>
             <li class="nav-item ms-2 mt-5">
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a href="" class="btn btn-primary  active">Gestion des articles</a>
-                    <div class="btn-group" role="group">
+                <div class="btn-group w-100" role="group" aria-label="Button group with nested dropdown">
+                    <a href="" class="btn btn-primary active">Gestion des articles</a>
+                    <div class="btn-group dropend " role="group">
                         <button id="btnGroupDrop2" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop2" style="">
                             <a class="dropdown-item" href="{{ path('listProduct') }}">Liste des articles</a>
@@ -47,9 +48,9 @@
             </li>
 
             <li class="nav-item ms-2 mt-3">
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a href="" class="btn btn-primary  active">Gestion des catégories</a>
-                    <div class="btn-group" role="group">
+                <div class="btn-group w-100" role="group" aria-label="Button group with nested dropdown">
+                    <a href="" class="btn btn-primary active">Gestion des catégories</a>
+                    <div class="btn-group dropend" role="group">
                         <button id="btnGroupDrop3" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop3" style="">
                             <a class="dropdown-item" href="{{ path('listCategory') }}">Liste catégories</a>
@@ -60,9 +61,9 @@
             </li>
 
             <li class="nav-item ms-2 mt-3">
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a href="" class="btn btn-primary  active">Gestion caroussel</a>
-                    <div class="btn-group" role="group">
+                <div class="btn-group w-100" role="group" aria-label="Button group with nested dropdown">
+                    <a href="" class="btn btn-primary active">Gestion caroussel</a>
+                    <div class="btn-group dropend" role="group">
                         <button id="btnGroupDrop4" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
                             <a class="dropdown-item" href="{{ path('listCarousel') }}">Liste images carousel</a>
@@ -73,9 +74,9 @@
             </li>
 
             <li class="nav-item ms-2 mt-3">
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a href="" class="btn btn-primary  active">Gestion utilisateurs</a>
-                    <div class="btn-group" role="group">
+                <div class="btn-group w-100" role="group" aria-label="Button group with nested dropdown">
+                    <a href="" class="btn btn-primary active">Gestion utilisateurs</a>
+                    <div class="btn-group dropend" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
                             <a class="dropdown-item" href="{{ path('listUsers') }}">Liste des utilisateurs</a>
@@ -85,9 +86,9 @@
                 </div>
             </li>
             <li class="nav-item ms-2 mt-3">
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group w-100" role="group" aria-label="Button group with nested dropdown">
                     <a href="" class="btn btn-primary  active">Gestion avis</a>
-                    <div class="btn-group" role="group">
+                    <div class="btn-group dropend" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
                             <a class="dropdown-item" href="{{ path('listReviews') }}">Liste des avis</a>
@@ -99,7 +100,7 @@
 
         </ul>
     </div>
-    <div class="col-md-9 bg-white table-responsive ">
+    <div class="col-md-9 table-responsive ">
 
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col text-center"><h1>{% block titre %}{% endblock %}</h1></div>

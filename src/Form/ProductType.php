@@ -69,7 +69,7 @@ class ProductType extends AbstractType
                 ],
                 'label'=>'Conseils d\'utilisation'
             ])
-            ->add('price', NumberType::class, [
+            ->add('price', TextType::class, [
                 'required'=>false,
                 'attr'=> [
                     'placeholder'=>'Saisissez le prix du produit',
@@ -158,7 +158,7 @@ class ProductType extends AbstractType
             ->add('picture_edit', FileType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez le nom du produit',
+                    'placeholder'=>'Ajutez une image produit',
                     'onChange'=>'loadFile(event)'
                 ],
                 'label'=>'Photo du produit',

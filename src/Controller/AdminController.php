@@ -329,16 +329,15 @@ class AdminController extends AbstractController
                 dd($e);
             }
 
-            
             $carousel->setPicture($picture_bdd);
             
             $manager->persist($carousel);
+
             $manager->flush();
 
             $this->addFlash('success', 'Photo ajouté au carousel');
 
             return $this->redirectToRoute("listCarousel");
-
 
         }
 
@@ -483,7 +482,7 @@ class AdminController extends AbstractController
         $manager->persist($user);
         $manager->flush();
 
-        $this->addFlash('success', 'Promotion administrateur');
+        $this->addFlash('success', 'Utilisateur promu');
         
         return $this->redirectToRoute('listUsers');
     }
@@ -498,7 +497,7 @@ class AdminController extends AbstractController
         $manager->persist($user);
         $manager->flush();
 
-        $this->addFlash('success', 'Dégradation user');
+        $this->addFlash('success', 'Utilisateur déclassé');
         
         return $this->redirectToRoute('listUsers');
     }

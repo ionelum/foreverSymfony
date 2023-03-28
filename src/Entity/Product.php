@@ -22,11 +22,13 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
     private $ref;
 
@@ -55,10 +57,9 @@ class Product
     private $mode;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=10, scale=2)
      * @Assert\NotBlank(message="Ce champ est obligatoire")
-     * @Assert\Positive(message="Le prix doit etre superior a zero")
-     * @Assert\Type(type="integer", message="Saisissez un entier")
+     * @Assert\Positive(message="Le prix doit etre superior à zero")
      */
     private $price;
 
@@ -163,12 +164,12 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): self
+    public function setPrice(string $price): self
     {
         $this->price = $price;
 

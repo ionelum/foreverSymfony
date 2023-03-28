@@ -49,7 +49,7 @@ class RegistrationType extends AbstractType
                     'placeholder'=>'Saisissez un pseudo'
                 ]
             ])
-            ->add('Enregistrer', SubmitType::class)
+            ->add('Inscription', SubmitType::class)
         ;
     }
 
