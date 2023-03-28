@@ -1,7 +1,9 @@
 {% extends 'backoffice.html.twig' %}
 
 {% block body %}
-<h1>Modification catégories</h1>
+<div class="container col-8">
+
+    <h1>Modification catégories</h1>
     
     {{ form_start(form) }}
     {{ form_row(form.title) }}
@@ -15,6 +17,7 @@
     {{ form_row(form.Enregistrer) }}
     {{ form_end(form) }}
 
+</div>
     <script>
         var loadFile1=function (event){
             var image1=document.getElementById('image1')

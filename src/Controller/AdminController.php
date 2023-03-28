@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Carousel;
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\Review;
 use App\Entity\User;
 use App\Form\CarouselType;
 use App\Form\CategoryType;
@@ -17,6 +18,7 @@ use App\Repository\ProductRepository;
 use App\Repository\ReviewRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -295,7 +297,7 @@ class AdminController extends AbstractController
         $manager->remove($category);
         $manager->flush();
 
-        $this->addFlash('success', 'Category supprimé');
+        $this->addFlash('success', 'Categorie supprimé');
 
         return $this->redirectToRoute('listCategory');
     }
@@ -416,7 +418,7 @@ class AdminController extends AbstractController
      *
      * @Route("/user/edit/{id}", name="editUser")
      */
-    public function editUser(User $user, Request $request, EntityManagerInterface $manager)
+    public function editUser(User $user, Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $hasher)
     {
 
         $form=$this->createForm(RegistrationType::class, $user);
@@ -425,6 +427,7 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()){
 
+            $user->setPassword($hasher->hashPassword($user,$user->getPassword()));
             $manager->persist($user);
             $manager->flush();
 
@@ -454,5 +457,57 @@ class AdminController extends AbstractController
             'reviews' => $reviews
 
         ]);
+    }
+
+    /**
+     * @Route("/review/delete/{id}", name="deleteReviewAdmin")
+     */
+    public function deleteReview(Review $review, EntityManagerInterface $manager)
+    {
+
+        $manager->remove($review);
+        $manager->flush();
+
+        $this->addFlash('success', 'Avis supprimé');
+        
+        return $this->redirectToRoute('listReviews');
+    }
+
+    /**
+     * @Route("/user/makeAdmin/{id}", name="makeAdmin")
+     */
+    public function makeAdmin(User $user, EntityManagerInterface $manager)
+    {
+
+        $user->setRoles(['ROLE_ADMIN']);
+        $manager->persist($user);
+        $manager->flush();
+
+        $this->addFlash('success', 'Promotion administrateur');
+        
+        return $this->redirectToRoute('listUsers');
+    }
+
+    /**
+     * @Route("/user/makeUser/{id}", name="makeUser")
+     */
+    public function makeUser(User $user, EntityManagerInterface $manager)
+    {
+
+        $user->setRoles(['ROLE_USER']);
+        $manager->persist($user);
+        $manager->flush();
+
+        $this->addFlash('success', 'Dégradation user');
+        
+        return $this->redirectToRoute('listUsers');
+    }
+
+    /**
+     * @Route("/backOffice", name="backOffice")
+     */
+    public function backOffice()
+    {
+        return $this->render('backoffice.html.twig');
     }
 }

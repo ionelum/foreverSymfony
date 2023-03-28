@@ -102,7 +102,9 @@
                                 </li> #}
                                 {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button"
+                                    {# data-bs-toggle="dropdown" #}
+                                    aria-expanded="false">
                                     Back-office
                                     </a>
                                     <ul class="dropdown-menu">
@@ -115,7 +117,9 @@
                                         <li><a class="dropdown-item" href="{{ path('addCarousel') }}">Ajout images carousel</a></li>
                                         <li><a class="dropdown-item" href="{{ path('listCarousel') }}">Liste images carousel</a></li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a class="dropdown-item" href="{{ path('listUsers') }}">Liste des utilisateurs</a></li>
+                                        <li><a class="dropdown-item" href="{{ path('listUsers') }}">Gestion utilisateurs</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a class="dropdown-item" href="{{ path('listReviews') }}">Gestion avis</a></li>
                                     </ul>
                                 </li>
                                 {% endif %}

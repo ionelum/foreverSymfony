@@ -65,24 +65,24 @@ class ProductType extends AbstractType
             ->add('mode', TextareaType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez les conseils d\'utilisation'
+                    'placeholder'=>'Saisissez les conseils d\'utilisation',
                 ],
                 'label'=>'Conseils d\'utilisation'
             ])
             ->add('price', NumberType::class, [
                 'required'=>false,
                 'attr'=> [
-                    'placeholder'=>'Saisissez le prix du produit'
+                    'placeholder'=>'Saisissez le prix du produit',
                 ],
                 'label'=>'Prix du produit'
             ])
             ->add('picture', FileType::class, [
                 'required'=>false,
+                'label'=>'Photo du produit',
                 'attr'=> [
                     'placeholder'=>'Chargez une photo',
                     'onChange'=>'loadFile(event)'
                 ],
-                'label'=>'Photo du produit',
                 'constraints'=>[
                     new File([
                         'mimeTypes'=>[
