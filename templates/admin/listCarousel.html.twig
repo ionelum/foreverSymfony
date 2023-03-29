@@ -22,7 +22,7 @@
             <td>{{ carousel.title }}</td>
             <td><img src="{{ asset('upload/' ~ carousel.picture) }}" width="300" alt=""></td>
             <td>
-                <a href="{{ path('deleteCarousel', {'id': carousel.id }) }}" class="mx-2"><i class="fas fa-2x fa-trash text-danger"></i></a>
+                <a href="{{ path('deleteCarousel', {'id': carousel.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'image"><i class="fas fa-2x fa-trash text-danger"></i></a>
             </td>
         </tr>
         {% endfor %}

@@ -10,7 +10,6 @@ use App\Entity\User;
 use App\Form\CarouselType;
 use App\Form\CategoryType;
 use App\Form\ProductType;
-use App\Form\RegistrationAdminType;
 use App\Form\RegistrationType;
 use App\Repository\CarouselRepository;
 use App\Repository\CategoryRepository;
@@ -67,11 +66,8 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute("listProduct");
 
-
         }
 
-
-        
         return $this->render('admin/addProduct.html.twig', [
             'form' => $form->createView()
 
@@ -87,7 +83,6 @@ class AdminController extends AbstractController
 
         $products = $productRepository->findAll();
         
-
 
         return $this->render('admin/listProduct.html.twig', [
             'products' => $products
@@ -454,6 +449,22 @@ class AdminController extends AbstractController
 
         return $this->render('admin/listReviews.html.twig', [
             'reviews' => $reviews
+
+        ]);
+    }
+
+    /**
+     * @Route("/review/list/{id}", name="listReviewsUser")
+     */
+    public function listReviewsUser(ReviewRepository $reviewRepository, User $user, UserRepository $userRepository, $id=null)
+    {
+        $user = $userRepository->find($id);
+
+        $reviews = $reviewRepository->findBy(['user' => $id], ['id' => 'DESC']);
+        
+        return $this->render('admin/listReviewsUser.html.twig', [
+            'reviews' => $reviews,
+            'user' => $user
 
         ]);
     }

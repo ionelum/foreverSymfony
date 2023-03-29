@@ -27,8 +27,6 @@ class HomeController extends AbstractController
         $carousels = $carouselRepository->findAll();
     
     
-    
-    
     return $this->render('home/accueil.html.twig', [
         'products' => $products,
         'categories' => $categories,
@@ -81,9 +79,7 @@ class HomeController extends AbstractController
 
         $categories = $categoryRepository->findAll();
 
-        // $reviews = $product->getReviews();
-
-        $reviews = $reviewRepository->findBy(['product' => $id]);
+        $reviews = $reviewRepository->findBy(['product' => $id], ['id' => 'DESC']);
 
         $review = new Review();
 

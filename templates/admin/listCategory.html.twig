@@ -26,8 +26,8 @@
             <td class="py-0"><img src="{{ asset('upload/' ~ category.pictureNormal) }}" width="120" alt=""></td>
             <td class="py-0"><img src="{{ asset('upload/' ~ category.pictureWide) }}" width="160" alt=""></td>
             <td class="py-0">
-                <a href="{{ path('editCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-edit text-info"></i></a>
-                <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="mx-2"><i class="fas fa-2x fa-trash text-danger"></i></a>
+                <a href="{{ path('editCategory', {'id': category.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Modifier la categorie"><i class="fas fa-2x fa-edit text-info"></i></a>
+                <a href="{{ path('deleteCategory', {'id': category.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer la categorie"><i class="fas fa-2x fa-trash text-danger"></i></a>
             </td>
         </tr>
         {% endfor %}
