@@ -32,7 +32,7 @@
                             id="navbarSupportedContent"
                         >
                             <ul class="navbar-nav mb-2 mb-lg-0">
-                                <li class="nav-item mx-2">
+                                <li class="nav-item mx-1">
                                     <a
                                         class="nav-link active goHome"
                                         aria-current="page"
@@ -101,8 +101,8 @@
                                     >
                                 </li> #}
                                 {% if is_granted('ROLE_ADMIN') %}
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button"
+                                <li class="nav-item dropdown mx-1">
+                                    <a class="btn btn-info text-primary p-1 mt-1 nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button"
                                     {# data-bs-toggle="dropdown" #}
                                     aria-expanded="false">
                                     Back-office
@@ -124,18 +124,18 @@
                                 </li>
                                 {% endif %}
                                 {% if not app.user %}
-                                <li class="nav-item mx-1 mt-1">
+                                <li class="nav-item mx-1">
                                     <a
                                         role="button"
-                                        class="btn btn-info text-primary fw-bolder"
+                                        class="btn btn-info nav-link text-primary p-1 mt-1"
                                         href="{{ path('login') }}"
                                         >Connexion</a>
                                 </li>
                                 {% else %}
-                                <li class="nav-item mx-1 mt-1">
+                                <li class="nav-item mx-1">
                                     <a
                                         role="button"
-                                        class="btn btn-secondary text-primary fw-bolder"
+                                        class="btn btn-secondary text-primary p-1 mt-1 nav-link"
                                         href="{{ path('logout') }}"
                                         >Deconnexion</a>
                                 </li>
