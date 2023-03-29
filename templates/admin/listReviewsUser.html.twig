@@ -27,7 +27,7 @@
                 <td class="py-1">{{ review.content }}</td>
                 <td class="py-1">
                     {# <a href="" class="mx-2"><i class="fas fa-2x fa-edit text-info"></i></a> #}
-                    <a href="{{ path('deleteReviewAdmin', {'id': review.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'avis"><i class="fas fa-2x fa-trash text-danger"></i></a>
+                    <a href="{{ path('deleteReviewAdmin', {'id': review.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'avis"><i class="fas fs-4 fa-trash text-danger"></i></a>
                 </td>
             </tr>
         {% endfor %}

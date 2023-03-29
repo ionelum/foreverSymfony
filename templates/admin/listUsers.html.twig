@@ -29,6 +29,14 @@
                 <td class="py-1">{{ user.roles[0] }}</td>
                 <td class="py-1">
 
+                    {% if loop.index == 1 %}
+
+                    <a class="mx-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Désactivé"><i class="fas fa-2x fa-trash text-secondary"></i></a>
+                    <a class="mx-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Désactivé"><i class="fas fa-2x fa-lock-open text-secondary"></i></a>
+    
+                    {% endif %}
+
+
                     {% if loop.index != 1 %}
 
                         <a href="{{ path('deleteUser', {'id': user.id }) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'utilisateur"><i class="fas fa-2x fa-trash text-danger"></i></a>
@@ -42,6 +50,7 @@
                             <a href="{{ path('makeUser', {'id': user.id }) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Enlever les droits d'administrateur"><i class="fas fa-2x fa-lock-open text-success"></i></a>
 
                         {% endif %}
+                        
 
                     {% endif %}
                     

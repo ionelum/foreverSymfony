@@ -35,8 +35,8 @@
                 <td class="p-0">{{ product.mode|slice(0, 20) }}</td>
                 <td class="p-0"><img src="{{ asset('upload/' ~ product.picture) }}" width="50" alt=""></td>
                 <td class="p-0">
-                    <a href="{{ path('editProduct', {'id': product.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Modifier l'article"><i class="fas fa-2x fa-edit text-info"></i></a>
-                    <a href="{{ path('deleteProduct', {'id': product.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'article"><i class="fas fa-2x fa-trash text-danger"></i></a>
+                    <a href="{{ path('editProduct', {'id': product.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Modifier l'article"><i class="fas fs-4 fa-edit text-info"></i></a>
+                    <a href="{{ path('deleteProduct', {'id': product.id }) }}" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Supprimer l'article"><i class="fas fs-4 fa-trash text-danger"></i></a>
                 </td>
             </tr>
         {% endfor %}

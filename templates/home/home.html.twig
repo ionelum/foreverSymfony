@@ -93,13 +93,13 @@
                                         >Commander</a
                                     >
                                 </li>
-                                {# <li class="nav-item mx-1">
+                                <li class="nav-item mx-1">
                                     <a
                                         class="nav-link"
-                                        href="mailto:vluncasu@yahoo.com"
+                                        href="{{ path('accueil') }}#contact"
                                         >Contacter-moi</a
                                     >
-                                </li> #}
+                                </li>
                                 {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item dropdown mx-1">
                                     <a class="btn btn-info text-primary p-1 mt-1 nav-link dropdown-toggle" href="{{ path('listProduct') }}" role="button"
